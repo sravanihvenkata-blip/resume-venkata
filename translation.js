@@ -159,51 +159,83 @@ document.addEventListener('DOMContentLoaded', () => {
     setLanguage(currentLang);
 
 
-    // --- PDF Generation Logic ---
+    // --- PDF Generation Logic (Improved) ---
     const downloadBtn = document.getElementById('download-btn');
     if (downloadBtn) {
-        const originalButtonText = translations[currentLang].download_button;
+        const originalButtonText = translations[currentLang].download_button || 'Download Full CV (PDF)';
 
-        downloadBtn.addEventListener('click', () => {
-            // Provide user feedback
+        downloadBtn.addEventListener('click', async () => {
             downloadBtn.disabled = true;
             downloadBtn.innerHTML = 'Generating PDF...';
 
-            const lang = localStorage.getItem('language') || 'en';
-            const trans = translations[lang];
+            try {
+                const lang = localStorage.getItem('language') || 'en';
+                const trans = translations[lang];
 
-            fetch('cv_print.html')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok: ' + response.statusText);
-                    }
-                    return response.text();
-                })
-                .then(template => {
-                    let populatedTemplate = template;
-                    for (const key in trans) {
-                        const placeholder = new RegExp('{{' + key + '}}', 'g');
-                        populatedTemplate = populatedTemplate.replace(placeholder, trans[key]);
-                    }
+                // Fetch the HTML template
+                const response = await fetch('cv_print.html');
+                if (!response.ok) throw new Error('Could not fetch cv_print.html');
+                let populatedTemplate = await response.text();
 
-                    const opt = {
-                        filename:     'Sravani_Venkata_CV.pdf',
-                        image:        { type: 'jpeg', quality: 0.98 },
-                        html2canvas:  { scale: 2, useCORS: true, letterRendering: true },
-                        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-                    };
+                // Replace all placeholders with translation values
+                for (const key in trans) {
+                    const placeholder = new RegExp('{{' + key + '}}', 'g');
+                    const value = String(trans[key]).replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                    populatedTemplate = populatedTemplate.replace(placeholder, value);
+                }
 
-                    return html2pdf().set(opt).from(populatedTemplate).save();
-                })
-                .catch(error => {
-                    console.error('Error during PDF generation:', error);
-                    alert('Sorry, there was an error generating the PDF. Please check the console for details.');
-                })
-                .finally(() => {
-                    // Restore button state
-                    downloadBtn.disabled = false;
-                    downloadBtn.innerHTML = originalButtonText;
+                // Log any remaining unreplaced placeholders for debugging
+                const unreplacedPlaceholders = populatedTemplate.match(/{{[^}]+}}/g);
+                if (unreplacedPlaceholders) {
+                    console.warn('Unreplaced placeholders found:', unreplacedPlaceholders);
+                }
+
+                // Create and configure iframe
+                const iframe = document.createElement('iframe');
+                iframe.style.visibility = 'hidden';
+                iframe.style.position = 'absolute';
+                iframe.style.width = '0';
+                iframe.style.height = '0';
+                document.body.appendChild(iframe);
+
+                const iframeDoc = iframe.contentWindow.document;
+                iframeDoc.open();
+                iframeDoc.write(populatedTemplate);
+                iframeDoc.close();
+
+                // Wait for iframe content to fully load before generating PDF
+                await new Promise((resolve) => {
+                    iframe.onload = resolve;
+                    // Fallback timeout to ensure content is ready
+                    setTimeout(resolve, 1500);
                 });
+
+                // Small delay to ensure all images and styles are loaded
+                await new Promise(resolve => setTimeout(resolve, 500));
+
+                const element = iframe.contentWindow.document.documentElement;
+                const opt = {
+                    margin: 0.5,
+                    filename: 'Sravani_Venkata_CV.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2, useCORS: true, letterRendering: true, backgroundColor: '#ffffff' },
+                    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait', compress: true }
+                };
+
+                // Generate and save PDF
+                await html2pdf().set(opt).from(element).save();
+
+                // Cleanup
+                document.body.removeChild(iframe);
+                downloadBtn.disabled = false;
+                downloadBtn.innerHTML = originalButtonText;
+
+            } catch (error) {
+                console.error('Error during PDF generation:', error);
+                alert('Sorry, there was an error generating the PDF. Please try again.');
+                downloadBtn.disabled = false;
+                downloadBtn.innerHTML = originalButtonText;
+            }
         });
     }
 });
