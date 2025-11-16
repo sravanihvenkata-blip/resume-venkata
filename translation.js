@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setLanguage(currentLang);
 
 
-    // --- PDF Generation Logic (Improved) ---
+    // --- PDF Generation Logic (Embedded Template - No CORS Issues) ---
     const downloadBtn = document.getElementById('download-btn');
     if (downloadBtn) {
         const originalButtonText = translations[currentLang].download_button || 'Download Full CV (PDF)';
@@ -172,23 +172,173 @@ document.addEventListener('DOMContentLoaded', () => {
                 const lang = localStorage.getItem('language') || 'en';
                 const trans = translations[lang];
 
-                // Fetch the HTML template
-                const response = await fetch('cv_print.html');
-                if (!response.ok) throw new Error('Could not fetch cv_print.html');
-                let populatedTemplate = await response.text();
+                // Embedded HTML template with print styles
+                const htmlTemplate = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>${trans.title}</title>
+    <style>
+        body {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-size: 10pt;
+            line-height: 1.5;
+            background: #fff;
+            color: #000;
+            margin: 0;
+        }
+        .cv-container {
+            width: 8.5in;
+            padding: 0.75in;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 22pt;
+            font-weight: bold;
+            text-align: center;
+            margin: 0 0 5px 0;
+        }
+        h2 {
+            font-size: 14pt;
+            font-weight: bold;
+            border-bottom: 1px solid #000;
+            padding-bottom: 4px;
+            margin: 20px 0 10px 0;
+            page-break-before: auto;
+            page-break-after: avoid;
+        }
+        h5 {
+            font-size: 11pt;
+            font-weight: bold;
+            margin: 10px 0 5px 0;
+        }
+        p {
+            margin: 0 0 10px 0;
+        }
+        ul {
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .contact-info p {
+            display: inline;
+            margin: 0 5px;
+            font-size: 9pt;
+        }
+        .skill-category {
+            margin-bottom: 5px;
+        }
+        .project-item, .job {
+            margin-bottom: 15px;
+            page-break-inside: avoid;
+        }
+        .date {
+            font-style: italic;
+            color: #444;
+            font-size: 9pt;
+            margin-top: -2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <header>
+            <h1>${trans.name}</h1>
+            <div class="contact-info">
+                <p>${trans.email}: sravani.hvenkata@gmail.com</p>
+                <p>${trans.linkedin}: linkedin.com/in/sravani-hukumathi-venkata-750591110/</p>
+                <p>${trans.github}: github.com/sravanihvenkata-blip</p>
+            </div>
+        </header>
 
-                // Replace all placeholders with translation values
-                for (const key in trans) {
-                    const placeholder = new RegExp('{{' + key + '}}', 'g');
-                    const value = String(trans[key]).replace(/</g, '&lt;').replace(/>/g, '&gt;');
-                    populatedTemplate = populatedTemplate.replace(placeholder, value);
-                }
+        <section id="summary">
+            <h2>${trans.summary_title}</h2>
+            <p>${trans.summary_text_short}</p>
+        </section>
 
-                // Log any remaining unreplaced placeholders for debugging
-                const unreplacedPlaceholders = populatedTemplate.match(/{{[^}]+}}/g);
-                if (unreplacedPlaceholders) {
-                    console.warn('Unreplaced placeholders found:', unreplacedPlaceholders);
-                }
+        <section id="skills">
+            <h2>${trans.skills_title}</h2>
+            <div class="skill-category">
+                <p><b>${trans.skills_cat_prog}</b>: ${trans.skills_prog_lang_details}</p>
+            </div>
+            <div class="skill-category">
+                <p><b>${trans.skills_cat_ml}</b>: ${trans.skills_ml_details}</p>
+            </div>
+            <div class="skill-category">
+                <p><b>${trans.skills_cat_dl}</b>: ${trans.skills_dl_details}</p>
+            </div>
+            <div class="skill-category">
+                <p><b>${trans.skills_cat_tools}</b>: ${trans.skills_tools_details}</p>
+            </div>
+            <div class="skill-category">
+                <p><b>${trans.skills_cat_other}</b>: ${trans.skills_other_details}</p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>${trans.projects_title}</h2>
+            <div class="project-item">
+                <h5>${trans.project_1_title}</h5>
+                <ul>
+                    <li><b>${trans.project_tech_title}</b>: ${trans.project_1_tech}</li>
+                    <li><b>${trans.project_methods_title}</b>: ${trans.project_1_methods}</li>
+                    <li><b>${trans.project_impact_title}</b>: ${trans.project_1_impact}</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>${trans.experience_title_print}</h2>
+            <div class="job">
+                <h5>${trans.exp_1_title}</h5>
+                <p class="date">${trans.exp_1_date}</p>
+                <ul>
+                    <li>${trans.exp_1_li_1}</li>
+                    <li>${trans.exp_1_li_2}</li>
+                    <li>${trans.exp_1_li_3}</li>
+                    <li>${trans.exp_1_li_4}</li>
+                </ul>
+            </div>
+            <div class="job">
+                <h5>${trans.exp_2_title}</h5>
+                <p class="date">${trans.exp_2_date}</p>
+                <ul>
+                    <li>${trans.exp_2_li_1}</li>
+                    <li>${trans.exp_2_li_2}</li>
+                    <li>${trans.exp_2_li_3}</li>
+                </ul>
+            </div>
+            <div class="job">
+                <h5>${trans.exp_3_title}</h5>
+                <p class="date">${trans.exp_3_date}</p>
+                <ul>
+                    <li>${trans.exp_3_li_1}</li>
+                    <li>${trans.exp_3_li_2}</li>
+                    <li>${trans.exp_3_li_3}</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>${trans.education_title}</h2>
+            <h5>${trans.edu_1_title}</h5>
+            <p>${trans.edu_1_desc}</p>
+            <p class="date">${trans.edu_1_date}</p>
+        </section>
+        
+        <section id="certifications">
+            <h2>${trans.certs_title}</h2>
+            <p>${trans.certs_details}</p>
+        </section>
+    </div>
+</body>
+</html>`;
 
                 // Create and configure iframe
                 const iframe = document.createElement('iframe');
@@ -200,22 +350,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const iframeDoc = iframe.contentWindow.document;
                 iframeDoc.open();
-                iframeDoc.write(populatedTemplate);
+                iframeDoc.write(htmlTemplate);
                 iframeDoc.close();
 
                 // Wait for iframe content to fully load before generating PDF
                 await new Promise((resolve) => {
                     iframe.onload = resolve;
                     // Fallback timeout to ensure content is ready
-                    setTimeout(resolve, 1500);
+                    setTimeout(resolve, 1000);
                 });
 
-                // Small delay to ensure all images and styles are loaded
-                await new Promise(resolve => setTimeout(resolve, 500));
+                // Small delay to ensure all styles are applied
+                await new Promise(resolve => setTimeout(resolve, 300));
 
                 const element = iframe.contentWindow.document.documentElement;
                 const opt = {
-                    margin: 0.5,
+                    margin: 0,
                     filename: 'Sravani_Venkata_CV.pdf',
                     image: { type: 'jpeg', quality: 0.98 },
                     html2canvas: { scale: 2, useCORS: true, letterRendering: true, backgroundColor: '#ffffff' },
