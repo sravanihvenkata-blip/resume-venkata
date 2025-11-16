@@ -38,3 +38,23 @@ h2 {
     padding: 5px 10px;
     margin: 5px;
 }
+
+/* PDF Generation Specific Styles */
+.pdf-generation-mode {
+    --bs-body-font-family: 'Times New Roman', serif; /* Use a standard font for PDF */
+}
+
+.pdf-generation-mode .card {
+    box-shadow: none;
+    border: 1px solid #dee2e6;
+}
+
+.pdf-generation-mode .dropdown,
+.pdf-generation-mode #download-btn {
+    display: none !important;
+}
+
+/* Ensure sections are not split across pages */
+.pdf-generation-mode section {
+    page-break-inside: avoid;
+}
