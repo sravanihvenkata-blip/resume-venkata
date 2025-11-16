@@ -40,21 +40,65 @@ h2 {
 }
 
 /* PDF Generation Specific Styles */
-.pdf-generation-mode {
-    --bs-body-font-family: 'Times New Roman', serif; /* Use a standard font for PDF */
+.pdf-generation-mode * {
+    transition: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    color: #000 !important;
 }
 
-.pdf-generation-mode .card {
-    box-shadow: none;
-    border: 1px solid #dee2e6;
+.pdf-generation-mode {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 11pt;
+    line-height: 1.3;
+}
+
+.pdf-generation-mode .container {
+    width: 7.5in; /* Letter paper width (8.5in) - 0.5in margins on each side */
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 .pdf-generation-mode .dropdown,
-.pdf-generation-mode #download-btn {
+.pdf-generation-mode #download-btn,
+.pdf-generation-mode .d-flex.justify-content-end {
     display: none !important;
 }
 
-/* Ensure sections are not split across pages */
-.pdf-generation-mode section {
-    page-break-inside: avoid;
+.pdf-generation-mode section,
+.pdf-generation-mode .card {
+    break-inside: avoid;
+}
+
+.pdf-generation-mode p,
+.pdf-generation-mode li {
+    orphans: 3;
+    widows: 3;
+}
+
+.pdf-generation-mode h1, .pdf-generation-mode h2, .pdf-generation-mode h5 {
+    page-break-after: avoid;
+}
+
+.pdf-generation-mode .card {
+    border: 1px solid #e0e0e0 !important;
+    margin-bottom: 15px !important;
+}
+
+.pdf-generation-mode #skills li {
+    display: list-item !important;
+    list-style-position: inside;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 1px 0;
+    margin: 0;
+}
+
+.pdf-generation-mode #skills ul {
+    padding-left: 15px;
+}
+
+.pdf-generation-mode a {
+    text-decoration: none;
 }

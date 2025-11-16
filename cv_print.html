@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="print_styles.css">
+</head>
+<body>
+    <div class="cv-container">
+        <header>
+            <h1>{{name}}</h1>
+            <div class="contact-info">
+                <p>{{email}}: sravani.hvenkata@gmail.com</p>
+                <p>{{linkedin}}: linkedin.com/in/sravani-hukumathi-venkata-750591110/</p>
+                <p>{{github}}: github.com/sravanihvenkata-blip</p>
+            </div>
+        </header>
+
+        <section id="summary">
+            <h2>{{summary_title}}</h2>
+            <p>{{summary_text_short}}</p>
+        </section>
+
+        <section id="skills">
+            <h2>{{skills_title}}</h2>
+            <div class="skill-category">
+                <p><b>{{skills_cat_prog}}</b>: {{skills_prog_lang_details}}</p>
+            </div>
+            <div class="skill-category">
+                <p><b>{{skills_cat_ml}}</b>: {{skills_ml_details}}</p>
+            </div>
+            <div class="skill-category">
+                <p><b>{{skills_cat_dl}}</b>: {{skills_dl_details}}</p>
+            </div>
+            <div class="skill-category">
+                <p><b>{{skills_cat_tools}}</b>: {{skills_tools_details}}</p>
+            </div>
+             <div class="skill-category">
+                <p><b>{{skills_cat_other}}</b>: {{skills_other_details}}</p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>{{projects_title}}</h2>
+            <div class="project-item">
+                <h5>{{project_1_title}}</h5>
+                <ul>
+                    <li><b>{{project_tech_title}}</b>: {{project_1_tech}}</li>
+                    <li><b>{{project_methods_title}}</b>: {{project_1_methods}}</li>
+                    <li><b>{{project_impact_title}}</b>: {{project_1_impact}}</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>{{experience_title_print}}</h2>
+            <div class="job">
+                <h5>{{exp_1_title}}</h5>
+                <p class="date">{{exp_1_date}}</p>
+                <ul>
+                    <li>{{exp_1_li_1}}</li>
+                    <li>{{exp_1_li_2}}</li>
+                    <li>{{exp_1_li_3}}</li>
+                    <li>{{exp_1_li_4}}</li>
+                </ul>
+            </div>
+            <div class="job">
+                <h5>{{exp_2_title}}</h5>
+                <p class="date">{{exp_2_date}}</p>
+                <ul>
+                    <li>{{exp_2_li_1}}</li>
+                    <li>{{exp_2_li_2}}</li>
+                    <li>{{exp_2_li_3}}</li>
+                </ul>
+            </div>
+            <div class="job">
+                <h5>{{exp_3_title}}</h5>
+                <p class="date">{{exp_3_date}}</p>
+                <ul>
+                    <li>{{exp_3_li_1}}</li>
+                    <li>{{exp_3_li_2}}</li>
+                    <li>{{exp_3_li_3}}</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>{{education_title}}</h2>
+            <h5>{{edu_1_title}}</h5>
+            <p>{{edu_1_desc}}</p>
+            <p class="date">{{edu_1_date}}</p>
+        </section>
+        
+        <section id="certifications">
+            <h2>{{certs_title}}</h2>
+            <p>{{certs_details}}</p>
+        </section>
+    </div>
+</body>
+</html>

@@ -8,30 +8,34 @@ const translations = {
     "github": "GitHub",
     "summary_title": "Summary",
     "summary_text": "A seasoned embedded systems engineer with a decade of experience in the automotive industry, specializing in AUTOSAR, diagnostics, and communication protocols. Leveraging my robust embedded systems background and hands-on Python experience, I am now focusing on applying my analytical and problem-solving skills in the field of data science and machine learning. Passionate about leveraging data to solve complex problems, with a strong foundation in Python, machine learning, and data analysis. Eager to apply newly acquired skills in a challenging data science role.",
+    "summary_text_short": "A seasoned embedded systems engineer with a decade of experience, now transitioning into data science. Leveraging a strong background in Python and complex systems to solve data-driven problems.",
     "skills_title": "Skills",
-    "skills_prog_lang": "Programming Languages:",
+    "skills_cat_prog": "Programming Languages",
     "skills_prog_lang_details": "Python (OOP, Unit Testing)",
-    "skills_ds_libs": "Data Science Libraries:",
-    "skills_ds_libs_details": "Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Plotly",
-    "skills_ml": "Machine Learning:",
-    "skills_ml_details": "Classification, Regression, Clustering, Dimensionality Reduction (PCA), Feature Engineering, Time Series Analysis, Anomaly Detection",
-    "skills_dl": "Deep Learning:",
-    "skills_dl_details": "Keras, PyTorch, TensorFlow, CNNs, DNNs, Transformers, LLMs, Reinforcement Learning, Computer Vision (OpenCV)",
-    "skills_da": "Data Analysis:",
-    "skills_da_details": "Exploratory Statistics, Data Quality Assessment, Data Preprocessing, Data Visualization",
-    "skills_db": "Databases:",
-    "skills_tools": "Tools & Platforms:",
+    "skills_cat_ml": "Machine Learning & Data Analysis",
+    "skills_ml_details": "Classification, Regression, Clustering, Dimensionality Reduction (PCA), Feature Engineering, Time Series Analysis, Anomaly Detection, Exploratory Statistics, Data Visualization",
+    "skills_cat_dl": "Deep Learning",
+    "skills_dl_details": "Keras, PyTorch, TensorFlow, CNNs, DNNs, Transformers, LLMs, Computer Vision (OpenCV)",
+    "skills_cat_tools": "Tools & Platforms",
     "skills_tools_details": "Git, GitHub, Linux Command Line, Docker, Streamlit, Virtual Machines, AWS (basics)",
-    "skills_other": "Other:",
-    "skills_other_details": "Data APIs, Web Scraping (BeautifulSoup), Graph Theory, Network Analysis, Applied Data Science (Financial Datasets)",
-    "projects_title": "Projects",
+    "skills_cat_other": "Other Skills",
+    "skills_other_details": "Data APIs, Web Scraping (BeautifulSoup), SQL",
+    "ds_libs_details": "Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Plotly",
+    "projects_title": "Data Science Projects",
     "project_1_title": "CAN Bus Anomaly Detection",
+    "project_tech_title": "Technologies",
+    "project_1_tech": "Python, Pandas, Scikit-learn, Keras, Matplotlib",
+    "project_methods_title": "Methods",
+    "project_1_methods": "EDA, Supervised Classification, Unsupervised Anomaly Detection (LSTM Autoencoder), Feature Engineering (Shannon Entropy).",
+    "project_impact_title": "Impact",
+    "project_1_impact": "Developed a system to detect various CAN bus attacks (DoS, Fuzzy, Impersonation) in real-time, providing a foundation for enhanced automotive cybersecurity.",
     "project_1_desc": "Developed a robust anomaly detection system for Controller Area Network (CAN) bus traffic to identify malicious messages in real-time.",
     "project_1_li_1": "Implemented and compared two distinct models: a supervised classification model with expert-driven feature engineering and an unsupervised LSTM Autoencoder for detecting zero-day anomalies.",
     "project_1_li_2": "Performed in-depth Exploratory Data Analysis (EDA) to identify statistical differences between normal and attack traffic, validating the feature engineering strategy.",
     "project_1_li_3": "Engineered key features like Shannon Entropy to effectively distinguish between normal, structured CAN messages and high-entropy \"Fuzzy\" attacks.",
     "project_1_li_4": "Demonstrated the ability to detect various attack types, including DoS, Fuzzy, and Impersonation attacks, by analyzing CAN ID frequency, inter-arrival times, and payload characteristics.",
     "experience_title": "Professional Experience (Last 10 Years: Automotive Embedded Systems)",
+    "experience_title_print": "Professional Experience",
     "exp_1_title": "Project Lead, Montbleu Technologies GmbH, Germany",
     "exp_1_date": "Aug 2021 – Feb 2025",
     "exp_1_li_1": "Led adaptation and configuration of AUTOSAR MCAL for new automotive hardware platforms.",
@@ -56,41 +60,7 @@ const translations = {
     "edu_1_desc": "B.V.B College of Engineering and Technology, Hubli, India",
     "edu_1_date": "September 2009 – June 2013",
     "certs_title": "Certifications & Continuous Learning",
-    "cert_1_title": "Core Data Science and Machine Learning Knowledge",
-    "cert_1_li_1": "Fundamentals of Python programming for data analysis",
-    "cert_1_li_2": "Exploratory statistics, data quality assessment, and data preprocessing",
-    "cert_1_li_3": "Data visualization using Matplotlib, Seaborn, and optionally Plotly",
-    "cert_1_li_4": "Experience with Linux command line, Git & GitHub version control, and virtual machine setup",
-    "cert_2_title": "Machine Learning Skills",
-    "cert_2_li_1": "Classification algorithms and model evaluation",
-    "cert_2_li_2": "Regression methods and their applications",
-    "cert_2_li_3": "Clustering techniques for unsupervised learning",
-    "cert_2_li_4": "Dimensionality reduction (PCA and related methods)",
-    "cert_2_li_5": "Feature engineering and optimization best practices",
-    "cert_2_li_6": "Time series analysis and forecasting",
-    "cert_3_title": "Advanced ML Topics",
-    "cert_3_li_1": "Advanced Machine Learning (complex models, model pipelines)",
-    "cert_3_li_2": "Anomaly detection techniques",
-    "cert_3_li_3": "Ethics and interpretability in AI projects",
-    "cert_3_li_4": "Reinforcement learning (optional)",
-    "cert_3_li_5": "Introduction to Deep Learning with Keras and PyTorch",
-    "cert_3_li_6": "Computer vision (OpenCV), DNNs (Keras), CNNs, and TensorFlow (optional)",
-    "cert_3_li_7": "Transformers, LLMs, and agent-based ML (NLP focus)",
-    "cert_4_title": "Data Engineering & APIs",
-    "cert_4_li_1": "SQL database querying and management",
-    "cert_4_li_2": "Building interactive data applications with Streamlit",
-    "cert_4_li_3": "Principles of data APIs and Docker for deployment",
-    "cert_4_li_4": "AWS cloud basics (optional)",
-    "cert_5_title": "Other Technical Skills",
-    "cert_5_li_1": "Object oriented programming in Python (optional)",
-    "cert_5_li_2": "Unit testing and code quality practices (optional)",
-    "cert_5_li_3": "Web scraping with BeautifulSoup (optional)",
-    "cert_5_li_4": "Graph theory and network analysis (optional)",
-    "cert_5_li_5": "Applied data science for financial datasets (optional)",
-    "cert_6_title": "Professional Development & Best Practices",
-    "cert_6_li_1": "Methodology and workflow in data science projects",
-    "cert_6_li_2": "Ethics, interpretability, and responsible AI practices",
-    "cert_6_li_3": "Preparation for technical interviews and tests",
+    "certs_details": "Completed extensive coursework in Data Science and Machine Learning, covering topics from Python programming, data analysis, and visualization to advanced deep learning models, computer vision, and NLP.",
     "download_button": "Download Full CV (PDF)"
   },
   de: {
@@ -102,30 +72,34 @@ const translations = {
     "github": "GitHub",
     "summary_title": "Zusammenfassung",
     "summary_text": "Eine erfahrene Ingenieurin für eingebettete Systeme mit einem Jahrzehnt Erfahrung in der Automobilindustrie, spezialisiert auf AUTOSAR, Diagnose und Kommunikationsprotokolle. Ich nutze meinen robusten Hintergrund in eingebetteten Systemen und meine praktische Python-Erfahrung, um meine analytischen und problemlösenden Fähigkeiten nun im Bereich der Datenwissenschaft und des maschinellen Lernens anzuwenden. Leidenschaftlich daran interessiert, Daten zur Lösung komplexer Probleme zu nutzen, mit einer starken Grundlage in Python, maschinellem Lernen und Datenanalyse. Bestrebt, neu erworbene Fähigkeiten in einer anspruchsvollen Rolle als Datenwissenschaftlerin anzuwenden.",
+    "summary_text_short": "Erfahrene Ingenieurin für eingebettete Systeme mit einem Jahrzehnt Erfahrung, jetzt im Übergang zur Datenwissenschaft. Nutzt einen starken Hintergrund in Python und komplexen Systemen, um datengesteuerte Probleme zu lösen.",
     "skills_title": "Fähigkeiten",
-    "skills_prog_lang": "Programmiersprachen:",
+    "skills_cat_prog": "Programmiersprachen",
     "skills_prog_lang_details": "Python (OOP, Unit Testing)",
-    "skills_ds_libs": "Data-Science-Bibliotheken:",
-    "skills_ds_libs_details": "Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Plotly",
-    "skills_ml": "Maschinelles Lernen:",
-    "skills_ml_details": "Klassifikation, Regression, Clustering, Dimensionsreduktion (PCA), Feature Engineering, Zeitreihenanalyse, Anomalieerkennung",
-    "skills_dl": "Deep Learning:",
-    "skills_dl_details": "Keras, PyTorch, TensorFlow, CNNs, DNNs, Transformers, LLMs, Reinforcement Learning, Computer Vision (OpenCV)",
-    "skills_da": "Datenanalyse:",
-    "skills_da_details": "Explorative Statistik, Datenqualitätsbewertung, Datenvorverarbeitung, Datenvisualisierung",
-    "skills_db": "Datenbanken:",
-    "skills_tools": "Tools & Plattformen:",
+    "skills_cat_ml": "Maschinelles Lernen & Datenanalyse",
+    "skills_ml_details": "Klassifikation, Regression, Clustering, Dimensionsreduktion (PCA), Feature Engineering, Zeitreihenanalyse, Anomalieerkennung, Explorative Statistik, Datenvisualisierung",
+    "skills_cat_dl": "Deep Learning",
+    "skills_dl_details": "Keras, PyTorch, TensorFlow, CNNs, DNNs, Transformers, LLMs, Computer Vision (OpenCV)",
+    "skills_cat_tools": "Tools & Plattformen",
     "skills_tools_details": "Git, GitHub, Linux-Kommandozeile, Docker, Streamlit, Virtuelle Maschinen, AWS (Grundlagen)",
-    "skills_other": "Sonstiges:",
-    "skills_other_details": "Daten-APIs, Web Scraping (BeautifulSoup), Graphentheorie, Netzwerkanalyse, Angewandte Datenwissenschaft (Finanzdatensätze)",
-    "projects_title": "Projekte",
+    "skills_cat_other": "Weitere Fähigkeiten",
+    "skills_other_details": "Daten-APIs, Web Scraping (BeautifulSoup), SQL",
+    "ds_libs_details": "Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Plotly",
+    "projects_title": "Data-Science-Projekte",
     "project_1_title": "CAN-Bus-Anomalieerkennung",
+    "project_tech_title": "Technologien",
+    "project_1_tech": "Python, Pandas, Scikit-learn, Keras, Matplotlib",
+    "project_methods_title": "Methoden",
+    "project_1_methods": "EDA, Überwachte Klassifikation, Unüberwachte Anomalieerkennung (LSTM Autoencoder), Feature Engineering (Shannon-Entropie).",
+    "project_impact_title": "Ergebnis",
+    "project_1_impact": "Entwicklung eines Systems zur Echtzeit-Erkennung verschiedener CAN-Bus-Angriffe (DoS, Fuzzy, Impersonation) als Grundlage für eine verbesserte Cybersicherheit im Automobilbereich.",
     "project_1_desc": "Entwicklung eines robusten Anomalieerkennungssystems für den Controller Area Network (CAN)-Busverkehr zur Identifizierung bösartiger Nachrichten in Echtzeit.",
     "project_1_li_1": "Implementierung und Vergleich von zwei unterschiedlichen Modellen: ein überwachtes Klassifikationsmodell mit expertengesteuertem Feature Engineering und ein unüberwachter LSTM-Autoencoder zur Erkennung von Zero-Day-Anomalien.",
     "project_1_li_2": "Durchführung einer tiefgehenden explorativen Datenanalyse (EDA) zur Identifizierung statistischer Unterschiede zwischen normalem und Angriffsverkehr, um die Feature-Engineering-Strategie zu validieren.",
     "project_1_li_3": "Entwicklung von Schlüsselmerkmalen wie der Shannon-Entropie, um effektiv zwischen normalen, strukturierten CAN-Nachrichten und \"Fuzzy\"-Angriffen mit hoher Entropie zu unterscheiden.",
     "project_1_li_4": "Demonstration der Fähigkeit, verschiedene Angriffstypen wie DoS-, Fuzzy- und Impersonation-Angriffe durch Analyse der CAN-ID-Frequenz, der Zwischenankunftszeiten und der Nutzlast-Eigenschaften zu erkennen.",
     "experience_title": "Berufserfahrung (Letzte 10 Jahre: Eingebettete Automotive-Systeme)",
+    "experience_title_print": "Berufserfahrung",
     "exp_1_title": "Projektleiterin, Montbleu Technologies GmbH, Deutschland",
     "exp_1_date": "Aug 2021 – Feb 2025",
     "exp_1_li_1": "Leitung der Anpassung und Konfiguration von AUTOSAR MCAL für neue automobile Hardwareplattformen.",
@@ -150,46 +124,13 @@ const translations = {
     "edu_1_desc": "B.V.B College of Engineering and Technology, Hubli, Indien",
     "edu_1_date": "September 2009 – Juni 2013",
     "certs_title": "Zertifizierungen & kontinuierliches Lernen",
-    "cert_1_title": "Grundlagen der Datenwissenschaft und des maschinellen Lernens",
-    "cert_1_li_1": "Grundlagen der Python-Programmierung für die Datenanalyse",
-    "cert_1_li_2": "Explorative Statistik, Bewertung der Datenqualität und Datenvorverarbeitung",
-    "cert_1_li_3": "Datenvisualisierung mit Matplotlib, Seaborn und optional Plotly",
-    "cert_1_li_4": "Erfahrung mit der Linux-Kommandozeile, Git & GitHub-Versionskontrolle und der Einrichtung virtueller Maschinen",
-    "cert_2_title": "Fähigkeiten im maschinellen Lernen",
-    "cert_2_li_1": "Klassifikationsalgorithmen und Modellevaluierung",
-    "cert_2_li_2": "Regressionsmethoden und ihre Anwendungen",
-    "cert_2_li_3": "Clustering-Techniken für unüberwachtes Lernen",
-    "cert_2_li_4": "Dimensionsreduktion (PCA und verwandte Methoden)",
-    "cert_2_li_5": "Feature Engineering und Optimierungs-Best-Practices",
-    "cert_2_li_6": "Zeitreihenanalyse und -prognose",
-    "cert_3_title": "Fortgeschrittene ML-Themen",
-    "cert_3_li_1": "Fortgeschrittenes maschinelles Lernen (komplexe Modelle, Modell-Pipelines)",
-    "cert_3_li_2": "Anomalieerkennungstechniken",
-    "cert_3_li_3": "Ethik und Interpretierbarkeit in KI-Projekten",
-    "cert_3_li_4": "Verstärkendes Lernen (optional)",
-    "cert_3_li_5": "Einführung in Deep Learning mit Keras und PyTorch",
-    "cert_3_li_6": "Computer Vision (OpenCV), DNNs (Keras), CNNs und TensorFlow (optional)",
-    "cert_3_li_7": "Transformer, LLMs und agentenbasiertes ML (NLP-Fokus)",
-    "cert_4_title": "Data Engineering & APIs",
-    "cert_4_li_1": "SQL-Datenbankabfragen und -verwaltung",
-    "cert_4_li_2": "Erstellung interaktiver Datenanwendungen mit Streamlit",
-    "cert_4_li_3": "Prinzipien von Daten-APIs und Docker für die Bereitstellung",
-    "cert_4_li_4": "AWS-Cloud-Grundlagen (optional)",
-    "cert_5_title": "Weitere technische Fähigkeiten",
-    "cert_5_li_1": "Objektorientierte Programmierung in Python (optional)",
-    "cert_5_li_2": "Unit-Tests und Code-Qualitätspraktiken (optional)",
-    "cert_5_li_3": "Web Scraping mit BeautifulSoup (optional)",
-    "cert_5_li_4": "Graphentheorie und Netzwerkanalyse (optional)",
-    "cert_5_li_5": "Angewandte Datenwissenschaft für Finanzdatensätze (optional)",
-    "cert_6_title": "Berufliche Entwicklung & Best Practices",
-    "cert_6_li_1": "Methodik und Workflow in Datenwissenschaftsprojekten",
-    "cert_6_li_2": "Ethik, Interpretierbarkeit und verantwortungsvolle KI-Praktiken",
-    "cert_6_li_3": "Vorbereitung auf technische Interviews und Tests",
+    "certs_details": "Abschluss umfangreicher Kurse in Datenwissenschaft und maschinellem Lernen, die Themen von der Python-Programmierung, Datenanalyse und -visualisierung bis hin zu fortgeschrittenen Deep-Learning-Modellen, Computer Vision und NLP abdecken.",
     "download_button": "Vollständigen Lebenslauf herunterladen (PDF)"
   }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Language Switching Logic ---
     const setLanguage = (language) => {
         document.documentElement.lang = language;
         localStorage.setItem('language', language);
@@ -214,12 +155,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const savedLang = localStorage.getItem('language');
     const browserLang = navigator.language.split('-')[0];
+    const currentLang = savedLang || (browserLang === 'de' ? 'de' : 'en');
+    setLanguage(currentLang);
 
-    if (savedLang) {
-        setLanguage(savedLang);
-    } else if (browserLang === 'de') {
-        setLanguage('de');
-    } else {
-        setLanguage('en');
+
+    // --- PDF Generation Logic ---
+    const downloadBtn = document.getElementById('download-btn');
+    if (downloadBtn) {
+        const originalButtonText = translations[currentLang].download_button;
+
+        downloadBtn.addEventListener('click', () => {
+            // Provide user feedback
+            downloadBtn.disabled = true;
+            downloadBtn.innerHTML = 'Generating PDF...';
+
+            const lang = localStorage.getItem('language') || 'en';
+            const trans = translations[lang];
+
+            fetch('cv_print.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok: ' + response.statusText);
+                    }
+                    return response.text();
+                })
+                .then(template => {
+                    let populatedTemplate = template;
+                    for (const key in trans) {
+                        const placeholder = new RegExp('{{' + key + '}}', 'g');
+                        populatedTemplate = populatedTemplate.replace(placeholder, trans[key]);
+                    }
+
+                    const opt = {
+                        filename:     'Sravani_Venkata_CV.pdf',
+                        image:        { type: 'jpeg', quality: 0.98 },
+                        html2canvas:  { scale: 2, useCORS: true, letterRendering: true },
+                        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+                    };
+
+                    return html2pdf().set(opt).from(populatedTemplate).save();
+                })
+                .catch(error => {
+                    console.error('Error during PDF generation:', error);
+                    alert('Sorry, there was an error generating the PDF. Please check the console for details.');
+                })
+                .finally(() => {
+                    // Restore button state
+                    downloadBtn.disabled = false;
+                    downloadBtn.innerHTML = originalButtonText;
+                });
+        });
     }
 });

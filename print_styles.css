@@ -1,0 +1,77 @@
+body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 10pt;
+    line-height: 1.5;
+    background: #fff;
+    color: #000;
+    margin: 0;
+}
+
+.cv-container {
+    width: 8.5in;
+    padding: 0.75in;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 22pt;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 0 5px 0;
+}
+
+h2 {
+    font-size: 14pt;
+    font-weight: bold;
+    border-bottom: 1px solid #000;
+    padding-bottom: 4px;
+    margin: 20px 0 10px 0;
+    page-break-before: auto;
+    page-break-after: avoid;
+}
+
+h5 {
+    font-size: 11pt;
+    font-weight: bold;
+    margin: 10px 0 5px 0;
+}
+
+p {
+    margin: 0 0 10px 0;
+}
+
+ul {
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    display: inline;
+    margin: 0 5px;
+    font-size: 9pt;
+}
+
+.skill-category {
+    margin-bottom: 5px;
+}
+
+.project-item, .job {
+    margin-bottom: 15px;
+    page-break-inside: avoid;
+}
+
+.date {
+    font-style: italic;
+    color: #444;
+    font-size: 9pt;
+    margin-top: -2px;
+}
