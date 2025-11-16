@@ -1,0 +1,40 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+h1, h2 {
+    color: #0056b3;
+}
+
+h2 {
+    font-weight: 300;
+}
+
+.card {
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-primary:hover {
+    background-color: #004494;
+    border-color: #003b80;
+}
+
+#skills ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#skills li {
+    display: inline-block;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px;
+}
