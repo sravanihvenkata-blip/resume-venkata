@@ -199,9 +199,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const originalButtonText = translations[currentLang].download_button || 'Download Full CV (PDF)';
 
     downloadBtn.addEventListener('click', async () => {
-      // 1. Check if Libraries are loaded
       if (!window.html2canvas || !window.jspdf) {
-        alert("Error: PDF libraries (html2canvas or jspdf) are not loaded. Please check your internet connection or index.html.");
+        alert("Error: PDF libraries are not loaded. Please check index.html.");
         return;
       }
 
@@ -212,19 +211,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const lang = localStorage.getItem('language') || 'en';
         const trans = translations[lang];
 
-        // 2. Create PDF container - FIXED POSITIONING
         const tempDiv = document.createElement('div');
         tempDiv.id = 'pdf-temp-container';
         
-        // This is the CRITICAL FIX:
-        // Use z-index to hide it behind the page, instead of moving it off-screen
+        // --- FIXED & SAFE STYLING ---
         tempDiv.style.position = 'fixed';
         tempDiv.style.left = '0';
         tempDiv.style.top = '0';
         tempDiv.style.zIndex = '-9999'; 
         
-        tempDiv.style.width = '816px'; // 8.5 inches at 96 DPI
-        tempDiv.style.padding = '48px 58px'; // approx 0.5in 0.6in
+        tempDiv.style.width = '816px'; 
+        tempDiv.style.padding = '48px 58px'; 
         tempDiv.style.backgroundColor = 'white';
         tempDiv.style.color = '#2c3e50';
         tempDiv.style.fontFamily = "Calibri, Arial, sans-serif";
@@ -354,7 +351,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- SMART PAGE BREAK LOGIC ---
         await new Promise(resolve => setTimeout(resolve, 500)); // Allow render
         
-        // 11 inches in pixels at 96 DPI is approx 1056
         const PAGE_HEIGHT_PX = 1000; 
         
         const blocks = tempDiv.querySelectorAll('.pdf-section, .pdf-job, .pdf-project-item, .pdf-cert-item');
@@ -375,69 +371,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log('Capturing optimized PDF layout...');
 
-        // Capture with html2canvas
-        const canvas = await html2canvas(tempDiv, {
-          scale: 2,
-          useCORS: true,
-          allowTaint: true,
-          backgroundColor: 'white',
-          logging: false
-        });
-
-        // Generate PDF
-        const { jsPDF } = window.jspdf;
-        const pageWidth = 8.5;
-        const pageHeight = 11;
-        const margin = 0.4;
-        const contentWidth = pageWidth - (margin * 2);
-        
-        const imgData = canvas.toDataURL('image/png');
-        const canvasWidth = canvas.width;
-        const canvasHeight = canvas.height;
-        
-        const scaledImgHeight = (canvasHeight * contentWidth) / canvasWidth;
-        const usablePageHeight = pageHeight - (margin * 2);
-        const numPages = Math.ceil(scaledImgHeight / usablePageHeight);
-
-        const pdf = new jsPDF({ orientation: 'p', unit: 'in', format: 'letter' });
-
-        for (let pageNum = 0; pageNum < numPages; pageNum++) {
-          if (pageNum > 0) pdf.addPage();
-          
-          const sourceY = (pageNum * canvasHeight * usablePageHeight) / scaledImgHeight;
-          const sourceHeight = Math.min(
-            canvasHeight - sourceY,
-            (canvasHeight * usablePageHeight) / scaledImgHeight
-          );
-          
-          const tempCanvas = document.createElement('canvas');
-          tempCanvas.width = canvasWidth;
-          tempCanvas.height = sourceHeight;
-          
-          const tempCtx = tempCanvas.getContext('2d');
-          tempCtx.fillStyle = 'white';
-          tempCtx.fillRect(0, 0, canvasWidth, sourceHeight);
-          tempCtx.drawImage(canvas, 0, sourceY, canvasWidth, sourceHeight, 0, 0, canvasWidth, sourceHeight);
-          
-          const pageImageData = tempCanvas.toDataURL('image/png');
-          const pageImageHeight = (sourceHeight * contentWidth) / canvasWidth;
-          
-          pdf.addImage(pageImageData, 'PNG', margin, margin, contentWidth, pageImageHeight);
-        }
-
-        pdf.save('Sravani_Venkata_CV.pdf');
-        
-        // Cleanup
-        document.body.removeChild(tempDiv);
-        downloadBtn.disabled = false;
-        downloadBtn.innerHTML = originalButtonText;
-
-      } catch (error) {
-        console.error(error);
-        alert('Error generating PDF: ' + error.message);
-        downloadBtn.disabled = false;
-        downloadBtn.innerHTML = originalButtonText;
-      }
-    });
-  }
-});
+        // --- SAFE SCALE FACTOR (1.1) to prevent
