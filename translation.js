@@ -199,6 +199,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const originalButtonText = translations[currentLang].download_button || 'Download Full CV (PDF)';
 
     downloadBtn.addEventListener('click', async () => {
+      // 1. Check if Libraries are loaded
+      if (!window.html2canvas || !window.jspdf) {
+        alert("Error: PDF libraries (html2canvas or jspdf) are not loaded. Please check your internet connection or index.html.");
+        return;
+      }
+
       downloadBtn.disabled = true;
       downloadBtn.innerHTML = 'Generating PDF...';
 
@@ -206,15 +212,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const lang = localStorage.getItem('language') || 'en';
         const trans = translations[lang];
 
-        // Create PDF container
+        // 2. Create PDF container - FIXED POSITIONING
         const tempDiv = document.createElement('div');
         tempDiv.id = 'pdf-temp-container';
-        // Base styles
-        tempDiv.style.position = 'absolute';
-        tempDiv.style.top = '-10000px';
+        
+        // This is the CRITICAL FIX:
+        // Use z-index to hide it behind the page, instead of moving it off-screen
+        tempDiv.style.position = 'fixed';
         tempDiv.style.left = '0';
-        tempDiv.style.width = '8.5in'; // US Letter Width
-        tempDiv.style.padding = '0.5in 0.6in';
+        tempDiv.style.top = '0';
+        tempDiv.style.zIndex = '-9999'; 
+        
+        tempDiv.style.width = '816px'; // 8.5 inches at 96 DPI
+        tempDiv.style.padding = '48px 58px'; // approx 0.5in 0.6in
         tempDiv.style.backgroundColor = 'white';
         tempDiv.style.color = '#2c3e50';
         tempDiv.style.fontFamily = "Calibri, Arial, sans-serif";
@@ -225,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Populate HTML
         tempDiv.innerHTML = `
 <style>
-  #pdf-temp-container { font-family: Calibri, Arial, sans-serif; color: #2c3e50; width: 8.5in; }
+  #pdf-temp-container { font-family: Calibri, Arial, sans-serif; color: #2c3e50; }
   .pdf-header { margin-bottom: 10pt; text-align: center; border-bottom: 2px solid #2980b9; padding-bottom: 6pt; }
   .pdf-header-name { font-size: 13pt; font-weight: bold; color: #1a3a52; margin: 0 0 3pt 0; }
   .pdf-header-contact { font-size: 8pt; color: #666; margin-top: 3pt; line-height: 1.3; }
@@ -342,49 +352,26 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(tempDiv);
 
         // --- SMART PAGE BREAK LOGIC ---
-        // This ensures no individual section, job, or project gets cut in half.
-        // It calculates where elements land and pushes them to the next page if they cross the cut line.
-        
         await new Promise(resolve => setTimeout(resolve, 500)); // Allow render
         
-        // Approx 11 inches in pixels at 96 DPI is ~1056. 
-        // We use 1000 to be safe and leave margins.
+        // 11 inches in pixels at 96 DPI is approx 1056
         const PAGE_HEIGHT_PX = 1000; 
         
-        // Select all "unbreakable" blocks
         const blocks = tempDiv.querySelectorAll('.pdf-section, .pdf-job, .pdf-project-item, .pdf-cert-item');
-        
-        let currentY = 0; // Tracks virtual cursor position
+        let currentY = 0;
         let pageCount = 1;
         
         blocks.forEach(block => {
-            // Get height of this block
             const blockHeight = block.offsetHeight;
-            
-            // Check if this block fits on the current page
-            // If (Current Height + Block Height) > (Page Limit * Current Page Number)
             if ((currentY + blockHeight) > (PAGE_HEIGHT_PX * pageCount)) {
-                // It overlaps! Move to next page.
-                
-                // Calculate how much space is left on current page
                 const spaceRemaining = (PAGE_HEIGHT_PX * pageCount) - currentY;
-                
-                // Add top margin to this block to push it down to the next page start
-                // plus a little buffer
                 const pushDown = spaceRemaining + 50; 
-                
                 block.style.marginTop = pushDown + 'px';
-                
-                // Update cursor to be on the new page
                 currentY += pushDown; 
                 pageCount++;
             }
-            
-            // Add block height to cursor
             currentY += blockHeight;
         });
-        
-        // --- END SMART LOGIC ---
 
         console.log('Capturing optimized PDF layout...');
 
@@ -447,7 +434,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       } catch (error) {
         console.error(error);
-        alert('Error: ' + error.message);
+        alert('Error generating PDF: ' + error.message);
         downloadBtn.disabled = false;
         downloadBtn.innerHTML = originalButtonText;
       }
