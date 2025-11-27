@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setLanguage(currentLang);
 
 
-  // --- PDF Generation Logic with Proper Page Breaking ---
+  // --- PDF Generation Logic ---
   const downloadBtn = document.getElementById('download-btn');
   if (downloadBtn) {
     const originalButtonText = translations[currentLang].download_button || 'Download Full CV (PDF)';
@@ -206,13 +206,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const lang = localStorage.getItem('language') || 'en';
         const trans = translations[lang];
 
-        // Create a professional PDF layout container
+        // Create PDF container
         const tempDiv = document.createElement('div');
         tempDiv.id = 'pdf-temp-container';
+        // Base styles
         tempDiv.style.position = 'absolute';
-        tempDiv.style.top = '-100vh';
+        tempDiv.style.top = '-10000px';
         tempDiv.style.left = '0';
-        tempDiv.style.width = '8.5in';
+        tempDiv.style.width = '8.5in'; // US Letter Width
         tempDiv.style.padding = '0.5in 0.6in';
         tempDiv.style.backgroundColor = 'white';
         tempDiv.style.color = '#2c3e50';
@@ -220,194 +221,45 @@ document.addEventListener('DOMContentLoaded', () => {
         tempDiv.style.fontSize = '10pt';
         tempDiv.style.lineHeight = '1.5';
         tempDiv.style.boxSizing = 'border-box';
-        tempDiv.style.minHeight = '11in';
-
+        
+        // Populate HTML
         tempDiv.innerHTML = `
 <style>
-  #pdf-temp-container { 
-    font-family: Calibri, Arial, sans-serif; 
-    color: #2c3e50;
-    width: 8.5in;
-    margin: 0;
-    padding: 0.5in 0.6in;
-  }
+  #pdf-temp-container { font-family: Calibri, Arial, sans-serif; color: #2c3e50; width: 8.5in; }
+  .pdf-header { margin-bottom: 10pt; text-align: center; border-bottom: 2px solid #2980b9; padding-bottom: 6pt; }
+  .pdf-header-name { font-size: 13pt; font-weight: bold; color: #1a3a52; margin: 0 0 3pt 0; }
+  .pdf-header-contact { font-size: 8pt; color: #666; margin-top: 3pt; line-height: 1.3; }
+  .pdf-header-contact span { display: block; margin: 1pt 0; }
   
-  /* HEADER */
-  .pdf-header { 
-    margin-bottom: 10pt; 
-    text-align: center; 
-    border-bottom: 2px solid #2980b9;
-    padding-bottom: 6pt;
-  }
-  .pdf-header-name { 
-    font-size: 13pt; 
-    font-weight: bold; 
-    color: #1a3a52; 
-    margin: 0 0 3pt 0;
-  }
-  .pdf-header-contact { 
-    font-size: 8pt; 
-    color: #666;
-    margin-top: 3pt;
-    line-height: 1.3;
-  }
-  .pdf-header-contact span { 
-    display: block; 
-    margin: 1pt 0;
-  }
+  .pdf-section { margin-bottom: 10pt; }
+  .pdf-section h2 { font-size: 10.5pt; font-weight: bold; color: #1a3a52; text-transform: uppercase; margin: 8pt 0 5pt 0; padding-bottom: 2pt; border-bottom: 1px solid #2980b9; letter-spacing: 0.05em; }
   
-  /* SECTIONS */
-  .pdf-section { 
-    margin-bottom: 10pt; 
-    page-break-inside: avoid;
-  }
-  .pdf-section:last-child { 
-    margin-bottom: 4pt; 
-  }
+  .pdf-summary-text { font-size: 9pt; line-height: 1.35; margin: 0; text-align: justify; }
   
-  .pdf-section h2 { 
-    font-size: 10.5pt; 
-    font-weight: bold; 
-    color: #1a3a52; 
-    text-transform: uppercase;
-    margin: 8pt 0 5pt 0;
-    padding-bottom: 2pt;
-    border-bottom: 1px solid #2980b9;
-    letter-spacing: 0.05em;
-    page-break-after: avoid;
-  }
+  .pdf-job { margin-bottom: 8pt; }
+  .pdf-job-title { font-size: 9pt; font-weight: bold; color: #1a3a52; margin: 0 0 1pt 0; }
+  .pdf-job-meta { font-size: 8pt; color: #777; margin: 0 0 3pt 0; font-style: italic; }
+  .pdf-job ul { margin: 3pt 0 0 0; padding-left: 18pt; list-style: disc; }
+  .pdf-job li { font-size: 8pt; line-height: 1.25; margin-bottom: 2pt; }
   
-  /* SUMMARY */
-  .pdf-summary-text { 
-    font-size: 9pt; 
-    line-height: 1.35; 
-    margin: 0;
-    text-align: justify;
-    page-break-inside: avoid;
-  }
+  .pdf-project-item { margin-bottom: 8pt; }
+  .pdf-project-title { font-size: 9pt; font-weight: bold; color: #1a3a52; margin: 0 0 3pt 0; }
+  .pdf-project-list { margin: 0; padding-left: 18pt; list-style: disc; }
+  .pdf-project-list li { font-size: 8pt; line-height: 1.25; margin-bottom: 1pt; }
   
-  /* EXPERIENCE & JOBS */
-  .pdf-job { 
-    margin-bottom: 8pt; 
-    page-break-inside: avoid;
-  }
-  .pdf-job-title { 
-    font-size: 9pt; 
-    font-weight: bold; 
-    color: #1a3a52; 
-    margin: 0 0 1pt 0;
-  }
-  .pdf-job-meta { 
-    font-size: 8pt; 
-    color: #777; 
-    margin: 0 0 3pt 0;
-    font-style: italic;
-  }
-  .pdf-job ul { 
-    margin: 3pt 0 0 0; 
-    padding-left: 18pt; 
-    list-style: disc;
-  }
-  .pdf-job li { 
-    font-size: 8pt; 
-    line-height: 1.25; 
-    margin-bottom: 2pt;
-  }
+  .pdf-skill-group { margin-bottom: 6pt; }
+  .pdf-skill-label { font-size: 8pt; font-weight: bold; color: #1a3a52; display: inline-block; width: 120pt; vertical-align: top; }
+  .pdf-skill-content { font-size: 8pt; color: #666; display: inline-block; width: calc(100% - 125pt); line-height: 1.3; }
   
-  /* PROJECTS */
-  .pdf-project-item { 
-    margin-bottom: 8pt; 
-    page-break-inside: avoid;
-  }
-  .pdf-project-title { 
-    font-size: 9pt; 
-    font-weight: bold; 
-    color: #1a3a52; 
-    margin: 0 0 3pt 0;
-  }
-  .pdf-project-list { 
-    margin: 0; 
-    padding-left: 18pt; 
-    list-style: disc;
-  }
-  .pdf-project-list li {
-    font-size: 8pt;
-    line-height: 1.25;
-    margin-bottom: 1pt;
-  }
+  .pdf-edu-item { margin-bottom: 5pt; }
+  .pdf-edu-degree { font-size: 8pt; font-weight: bold; color: #1a3a52; margin: 0; }
+  .pdf-edu-school { font-size: 8pt; margin: 0; color: #666; }
+  .pdf-edu-date { font-size: 7.5pt; color: #999; margin: 0; }
   
-  /* SKILLS & CATEGORIES */
-  .pdf-skill-group { 
-    margin-bottom: 6pt; 
-    page-break-inside: avoid;
-  }
-  .pdf-skill-label {
-    font-size: 8pt;
-    font-weight: bold;
-    color: #1a3a52;
-    display: inline-block;
-    width: 120pt;
-    vertical-align: top;
-  }
-  .pdf-skill-content {
-    font-size: 8pt;
-    color: #666;
-    display: inline-block;
-    width: calc(100% - 125pt);
-    line-height: 1.3;
-  }
-  
-  /* EDUCATION */
-  .pdf-edu-item { 
-    margin-bottom: 5pt; 
-    page-break-inside: avoid;
-  }
-  .pdf-edu-degree { 
-    font-size: 8pt; 
-    font-weight: bold; 
-    color: #1a3a52; 
-    margin: 0;
-  }
-  .pdf-edu-school { 
-    font-size: 8pt; 
-    margin: 0;
-    color: #666;
-  }
-  .pdf-edu-date { 
-    font-size: 7.5pt; 
-    color: #999;
-    margin: 0;
-  }
-  
-  /* CERTIFICATIONS */
-  .pdf-cert-item { 
-    margin-bottom: 6pt; 
-    page-break-inside: avoid;
-  }
-  .pdf-cert-category-title { 
-    font-size: 8pt; 
-    font-weight: bold; 
-    color: #1a3a52;
-    margin-bottom: 2pt;
-  }
-  .pdf-cert-list {
-    font-size: 8pt;
-    margin: 0;
-    padding-left: 18pt;
-    list-style: disc;
-    line-height: 1.25;
-  }
-  .pdf-cert-list li {
-    margin-bottom: 1pt;
-  }
-  
-  /* PAGE BREAK SUPPORT */
-  @media print {
-    .pdf-section { page-break-inside: avoid; }
-    .pdf-job { page-break-inside: avoid; }
-    .pdf-project-item { page-break-inside: avoid; }
-    .pdf-cert-item { page-break-inside: avoid; }
-  }
+  .pdf-cert-item { margin-bottom: 6pt; }
+  .pdf-cert-category-title { font-size: 8pt; font-weight: bold; color: #1a3a52; margin-bottom: 2pt; }
+  .pdf-cert-list { font-size: 8pt; margin: 0; padding-left: 18pt; list-style: disc; line-height: 1.25; }
+  .pdf-cert-list li { margin-bottom: 1pt; }
 </style>
 
 <div class="pdf-header">
@@ -425,36 +277,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <div class="pdf-section">
   <h2>${trans.skills_title}</h2>
-  
-  <div class="pdf-skill-group">
-    <span class="pdf-skill-label">${trans.skills_cat_prog}</span>
-    <span class="pdf-skill-content">${trans.skills_prog_lang_details}</span>
-  </div>
-  
-  <div class="pdf-skill-group">
-    <span class="pdf-skill-label">${trans.skills_cat_ml}</span>
-    <span class="pdf-skill-content">${trans.skills_ml_details}</span>
-  </div>
-  
-  <div class="pdf-skill-group">
-    <span class="pdf-skill-label">${trans.skills_cat_dl}</span>
-    <span class="pdf-skill-content">${trans.skills_dl_details}</span>
-  </div>
-  
-  <div class="pdf-skill-group">
-    <span class="pdf-skill-label">${trans.skills_cat_tools}</span>
-    <span class="pdf-skill-content">${trans.skills_tools_details}</span>
-  </div>
-  
-  <div class="pdf-skill-group">
-    <span class="pdf-skill-label">${trans.skills_cat_other}</span>
-    <span class="pdf-skill-content">${trans.skills_other_details}</span>
-  </div>
+  <div class="pdf-skill-group"><span class="pdf-skill-label">${trans.skills_cat_prog}</span><span class="pdf-skill-content">${trans.skills_prog_lang_details}</span></div>
+  <div class="pdf-skill-group"><span class="pdf-skill-label">${trans.skills_cat_ml}</span><span class="pdf-skill-content">${trans.skills_ml_details}</span></div>
+  <div class="pdf-skill-group"><span class="pdf-skill-label">${trans.skills_cat_dl}</span><span class="pdf-skill-content">${trans.skills_dl_details}</span></div>
+  <div class="pdf-skill-group"><span class="pdf-skill-label">${trans.skills_cat_tools}</span><span class="pdf-skill-content">${trans.skills_tools_details}</span></div>
+  <div class="pdf-skill-group"><span class="pdf-skill-label">${trans.skills_cat_other}</span><span class="pdf-skill-content">${trans.skills_other_details}</span></div>
 </div>
 
 <div class="pdf-section">
   <h2>${trans.projects_title}</h2>
-  
   <div class="pdf-project-item">
     <div class="pdf-project-title">${trans.project_1_title}</div>
     <ul class="pdf-project-list">
@@ -469,42 +300,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <div class="pdf-section">
   <h2>${trans.experience_title_print}</h2>
-  
   <div class="pdf-job">
     <div class="pdf-job-title">${trans.exp_1_title}</div>
     <div class="pdf-job-meta">${trans.exp_1_date}</div>
-    <ul>
-      <li>${trans.exp_1_li_1}</li>
-      <li>${trans.exp_1_li_2}</li>
-      <li>${trans.exp_1_li_3}</li>
-      <li>${trans.exp_1_li_4}</li>
-    </ul>
+    <ul><li>${trans.exp_1_li_1}</li><li>${trans.exp_1_li_2}</li><li>${trans.exp_1_li_3}</li><li>${trans.exp_1_li_4}</li></ul>
   </div>
-
   <div class="pdf-job">
     <div class="pdf-job-title">${trans.exp_2_title}</div>
     <div class="pdf-job-meta">${trans.exp_2_date}</div>
-    <ul>
-      <li>${trans.exp_2_li_1}</li>
-      <li>${trans.exp_2_li_2}</li>
-      <li>${trans.exp_2_li_3}</li>
-    </ul>
+    <ul><li>${trans.exp_2_li_1}</li><li>${trans.exp_2_li_2}</li><li>${trans.exp_2_li_3}</li></ul>
   </div>
-
   <div class="pdf-job">
     <div class="pdf-job-title">${trans.exp_3_title}</div>
     <div class="pdf-job-meta">${trans.exp_3_date}</div>
-    <ul>
-      <li>${trans.exp_3_li_1}</li>
-      <li>${trans.exp_3_li_2}</li>
-      <li>${trans.exp_3_li_3}</li>
-    </ul>
+    <ul><li>${trans.exp_3_li_1}</li><li>${trans.exp_3_li_2}</li><li>${trans.exp_3_li_3}</li></ul>
   </div>
 </div>
 
 <div class="pdf-section">
   <h2>${trans.education_title}</h2>
-  
   <div class="pdf-edu-item">
     <div class="pdf-edu-degree">${trans.edu_1_title}</div>
     <div class="pdf-edu-school">${trans.edu_1_desc}</div>
@@ -514,7 +328,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <div class="pdf-section">
   <h2>${trans.certs_title}</h2>
-  
   <div class="pdf-cert-item">
     <div class="pdf-cert-category-title">${trans.cert_1_title}</div>
     <ul class="pdf-cert-list">
@@ -528,10 +341,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.body.appendChild(tempDiv);
 
-        // Wait for rendering
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        // --- SMART PAGE BREAK LOGIC ---
+        // This ensures no individual section, job, or project gets cut in half.
+        // It calculates where elements land and pushes them to the next page if they cross the cut line.
+        
+        await new Promise(resolve => setTimeout(resolve, 500)); // Allow render
+        
+        // Approx 11 inches in pixels at 96 DPI is ~1056. 
+        // We use 1000 to be safe and leave margins.
+        const PAGE_HEIGHT_PX = 1000; 
+        
+        // Select all "unbreakable" blocks
+        const blocks = tempDiv.querySelectorAll('.pdf-section, .pdf-job, .pdf-project-item, .pdf-cert-item');
+        
+        let currentY = 0; // Tracks virtual cursor position
+        let pageCount = 1;
+        
+        blocks.forEach(block => {
+            // Get height of this block
+            const blockHeight = block.offsetHeight;
+            
+            // Check if this block fits on the current page
+            // If (Current Height + Block Height) > (Page Limit * Current Page Number)
+            if ((currentY + blockHeight) > (PAGE_HEIGHT_PX * pageCount)) {
+                // It overlaps! Move to next page.
+                
+                // Calculate how much space is left on current page
+                const spaceRemaining = (PAGE_HEIGHT_PX * pageCount) - currentY;
+                
+                // Add top margin to this block to push it down to the next page start
+                // plus a little buffer
+                const pushDown = spaceRemaining + 50; 
+                
+                block.style.marginTop = pushDown + 'px';
+                
+                // Update cursor to be on the new page
+                currentY += pushDown; 
+                pageCount++;
+            }
+            
+            // Add block height to cursor
+            currentY += blockHeight;
+        });
+        
+        // --- END SMART LOGIC ---
 
-        console.log('Capturing ATS-friendly PDF layout');
+        console.log('Capturing optimized PDF layout...');
 
         // Capture with html2canvas
         const canvas = await html2canvas(tempDiv, {
@@ -539,57 +394,35 @@ document.addEventListener('DOMContentLoaded', () => {
           useCORS: true,
           allowTaint: true,
           backgroundColor: 'white',
-          logging: false,
-          proxy: null,
-          removeContainer: false,
-          windowHeight: tempDiv.scrollHeight,
-          imageTimeout: 0
+          logging: false
         });
 
-        console.log('Canvas created:', canvas.width, 'x', canvas.height);
-
-        // Generate PDF with proper page management
+        // Generate PDF
         const { jsPDF } = window.jspdf;
-        
         const pageWidth = 8.5;
         const pageHeight = 11;
         const margin = 0.4;
         const contentWidth = pageWidth - (margin * 2);
         
-        // Get canvas dimensions
         const imgData = canvas.toDataURL('image/png');
         const canvasWidth = canvas.width;
         const canvasHeight = canvas.height;
         
-        // Calculate scaled image height
         const scaledImgHeight = (canvasHeight * contentWidth) / canvasWidth;
         const usablePageHeight = pageHeight - (margin * 2);
         const numPages = Math.ceil(scaledImgHeight / usablePageHeight);
-        
-        console.log('Image will be', scaledImgHeight, 'inches tall');
-        console.log('Pages needed:', numPages);
 
-        // Create PDF
-        const pdf = new jsPDF({
-          orientation: 'p',
-          unit: 'in',
-          format: 'letter'
-        });
+        const pdf = new jsPDF({ orientation: 'p', unit: 'in', format: 'letter' });
 
-        // Add image pages
         for (let pageNum = 0; pageNum < numPages; pageNum++) {
-          if (pageNum > 0) {
-            pdf.addPage();
-          }
+          if (pageNum > 0) pdf.addPage();
           
-          // Calculate which portion of the image to display on this page
           const sourceY = (pageNum * canvasHeight * usablePageHeight) / scaledImgHeight;
           const sourceHeight = Math.min(
             canvasHeight - sourceY,
             (canvasHeight * usablePageHeight) / scaledImgHeight
           );
           
-          // Create temporary canvas with this page's content
           const tempCanvas = document.createElement('canvas');
           tempCanvas.width = canvasWidth;
           tempCanvas.height = sourceHeight;
@@ -597,40 +430,23 @@ document.addEventListener('DOMContentLoaded', () => {
           const tempCtx = tempCanvas.getContext('2d');
           tempCtx.fillStyle = 'white';
           tempCtx.fillRect(0, 0, canvasWidth, sourceHeight);
-          tempCtx.drawImage(
-            canvas,
-            0, sourceY,
-            canvasWidth, sourceHeight,
-            0, 0,
-            canvasWidth, sourceHeight
-          );
+          tempCtx.drawImage(canvas, 0, sourceY, canvasWidth, sourceHeight, 0, 0, canvasWidth, sourceHeight);
           
-          // Convert to image and add to PDF
           const pageImageData = tempCanvas.toDataURL('image/png');
           const pageImageHeight = (sourceHeight * contentWidth) / canvasWidth;
           
-          pdf.addImage(
-            pageImageData,
-            'PNG',
-            margin,
-            margin,
-            contentWidth,
-            pageImageHeight
-          );
+          pdf.addImage(pageImageData, 'PNG', margin, margin, contentWidth, pageImageHeight);
         }
 
-        // Save PDF
         pdf.save('Sravani_Venkata_CV.pdf');
-
-        console.log('PDF saved successfully');
-
+        
         // Cleanup
         document.body.removeChild(tempDiv);
         downloadBtn.disabled = false;
         downloadBtn.innerHTML = originalButtonText;
 
       } catch (error) {
-        console.error('Error during PDF generation:', error);
+        console.error(error);
         alert('Error: ' + error.message);
         downloadBtn.disabled = false;
         downloadBtn.innerHTML = originalButtonText;
