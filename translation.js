@@ -74,7 +74,7 @@ const translations = {
     
     "cert_1_title": "Certified Data Scientist | DataScientest",
     "cert_1_li_1": "Completed intensive professional training (Weiterbildung) focusing on end-to-end data pipelines, advanced model building, and deployment strategies.",
-    "cert_1_li_2": "Intensivprogramm zu angewandtem maschinellen Lernen, Deep Learning (CNNs, Transformers) und Data Engineering.",
+    "cert_1_li_2": "Intensive program focused on applied machine learning, deep learning architectures (CNNs, Transformers), and production-grade data engineering pipelines.",
     "cert_1_li_3": "Included modules on MLOps, Model Interpretability, and Responsible AI practices.",
     "cert_1_li_4": "",
     
@@ -349,49 +349,36 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(tempDiv);
 
         // --- IMPROVED SMART PAGE BREAK LOGIC ---
-        await new Promise(resolve => setTimeout(resolve, 500)); // Allow render
+        await new Promise(resolve => setTimeout(resolve, 500)); 
         
-        // --- REDUCED PAGE HEIGHT to create Footer Space ---
-        const PAGE_HEIGHT_PX = 850; 
+        // MAXIMIZE PAGE USAGE: 1080px (Uses full page, minimum gap)
+        const PAGE_HEIGHT_PX = 1080; 
         
         const container = tempDiv;
-        // Get all blocks we want to manage as an array
         let blocks = Array.from(container.querySelectorAll('.pdf-section, .pdf-job, .pdf-project-item, .pdf-cert-item'));
         
         let currentY = 0;
         let pageCount = 1;
         
         for (const block of blocks) {
-            // Recalculate height as DOM changes affect positions
             const blockHeight = block.offsetHeight;
             
             if ((currentY + blockHeight) > (PAGE_HEIGHT_PX * pageCount)) {
-                // It overlaps! Move to next page.
-                
-                // Calculate space to fill on current page
+                // Instead of spacer, just push content down using padding
                 const spaceRemaining = (PAGE_HEIGHT_PX * pageCount) - currentY;
                 
-                // Create an invisible spacer div to fill the rest of the page
-                const spacer = document.createElement('div');
-                spacer.style.height = spaceRemaining + 'px';
-                spacer.style.width = '100%';
+                block.style.paddingTop = (spaceRemaining + 20) + 'px'; // +20 for clean break
                 
-                // Insert spacer BEFORE the block that needs to move
-                container.insertBefore(spacer, block);
-                
-                // Update cursor: jump over the spacer to start of next page
-                currentY += spaceRemaining;
+                currentY += (spaceRemaining + 20);
                 pageCount++;
             }
             
-            // Add block height to cursor
             currentY += blockHeight;
         }
-        // --- END IMPROVED LOGIC ---
+        // --- END LOGIC ---
 
         console.log('Capturing optimized PDF layout...');
 
-        // --- SAFE SCALE FACTOR (1.1) to prevent freezing ---
         const canvas = await html2canvas(tempDiv, {
           scale: 1.1,
           useCORS: true,
