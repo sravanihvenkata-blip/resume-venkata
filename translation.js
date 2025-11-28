@@ -77,6 +77,9 @@ const translations = {
     "cert_1_li_2": "Intensive program focused on applied machine learning, deep learning architectures (CNNs, Transformers), and production-grade data engineering pipelines.",
     "cert_1_li_3": "Included modules on MLOps, Model Interpretability, and Responsible AI practices.",
     "cert_1_li_4": "",
+
+    "languages_title": "Languages",
+    "languages_details": "English (Fluent), German (B2), Telugu (Mother tongue), Kannada, Hindi",
     
     "download_button": "Download Full CV (PDF)"
   },
@@ -158,6 +161,9 @@ const translations = {
     "cert_1_li_2": "Intensivprogramm zu angewandtem maschinellen Lernen, Deep Learning (CNNs, Transformers) und Data Engineering.",
     "cert_1_li_3": "Module zu MLOps, Modellinterpretierbarkeit und verantwortungsvoller KI.",
     "cert_1_li_4": "",
+
+    "languages_title": "Sprachen",
+    "languages_details": "Englisch (Verhandlungssicher), Deutsch (B2), Telugu (Muttersprache), Kannada, Hindi",
     
     "download_button": "Lebenslauf herunterladen (PDF)"
   }
@@ -267,6 +273,8 @@ document.addEventListener('DOMContentLoaded', () => {
   .pdf-cert-category-title { font-size: 8pt; font-weight: bold; color: #1a3a52; margin-bottom: 2pt; }
   .pdf-cert-list { font-size: 8pt; margin: 0; padding-left: 18pt; list-style: disc; line-height: 1.25; }
   .pdf-cert-list li { margin-bottom: 1pt; }
+
+  .pdf-list-item { font-size: 8pt; line-height: 1.3; color: #666; }
 </style>
 
 <div class="pdf-header">
@@ -344,6 +352,13 @@ document.addEventListener('DOMContentLoaded', () => {
     </ul>
   </div>
 </div>
+
+<div class="pdf-section">
+  <h2>${trans.languages_title}</h2>
+  <div class="pdf-list-item">
+    ${trans.languages_details}
+  </div>
+</div>
         `;
 
         document.body.appendChild(tempDiv);
@@ -354,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const PAGE_HEIGHT_PX = 1080; 
         
         // Select every individual item that can be moved, NOT just big sections
-        const atomicBlocks = tempDiv.querySelectorAll('h2, .pdf-job, .pdf-project-item, .pdf-cert-item, .pdf-edu-item, .pdf-skill-group, p.pdf-summary-text');
+        const atomicBlocks = tempDiv.querySelectorAll('h2, .pdf-job, .pdf-project-item, .pdf-cert-item, .pdf-edu-item, .pdf-skill-group, p.pdf-summary-text, .pdf-list-item');
         
         let currentY = 0;
         let pageCount = 1;
