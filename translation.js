@@ -120,9 +120,9 @@ const translations = {
     "project_1_desc": "Entwicklung eines robusten Anomalieerkennungssystems für CAN-Bus-Verkehr zur Echtzeit-Identifizierung bösartiger Nachrichten.",
     
     "project_1_li_1": "<b>Verwendete Methoden:</b> Einsatz eines Ensembles aus unüberwachten Lernmodellen, primär Isolation Forest (für DoS) und Local Outlier Factor (LOF) (für Fuzzy), erweitert durch heuristische Prioritätslogik (New ID Priority) zur präzisen Unterscheidung von Angriffstypen.",
-    "project_1_li_2": "<b>Verwendete Features:</b> Hauptmerkmale für DoS sind <i>frequency_hz</i> und <i>log_iat</i>; Fuzzy-Erkennung basiert auf Payload-Analyse mittels <i>rolling_volatility</i>, <i>hamming_dist</i> und dem <i>is_new_id</i> Flag.",
-    "project_1_li_3": "<b>Ergebnis:</b> Ein robustes System mit hoher Leistung: Fuzzy-Recall ~97,6%, DoS-Präzision ~98,8% und Normal-Frame-Recall ~99,9%.",
-    "project_1_li_4": "Nachgewiesene Fähigkeit zur Erkennung verschiedener Angriffstypen durch Analyse von CAN-ID-Frequenz, Zwischenankunftszeiten und Payload-Charakteristika.",
+    "project_1_li_2": "<b>Verwendete Features:</b> Hauptmerkmale für DoS sind <i>frequency_hz</i> und <i>log_iat</i>; Fuzzy-Erkennung basiert auf Payload-Analyse mittels <i>rolling_volatility</i>, <i>hamming_dist</i> und dem kritischen <i>is_new_id</i> Flag. Allgemeine Nachrichtenattribute wie <i>can_id_dec</i> und <i>dlc</i> werden ebenfalls berücksichtigt.",
+    "project_1_li_3": "<b>Ergebnis:</b> Ein robustes System mit hoher Leistung: Fuzzy-Attack Recall ~97,6%, DoS-Attack Präzision ~98,8% und Normal-Frame Recall ~99,9%.",
+    "project_1_li_4": "Nachgewiesene Fähigkeit zur Erkennung verschiedener Angriffstypen, einschließlich DoS- und Fuzzy-Angriffen, durch Analyse von CAN-ID-Frequenz, Zwischenankunftszeiten und Payload-Charakteristika.",
     
     "experience_title": "Berufserfahrung (Letzte 11 Jahre)",
     "experience_title_print": "Berufserfahrung (Letzte 11 Jahre: Automotive Embedded Systems)",
@@ -301,6 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
   <div class="pdf-project-item">
     <div class="pdf-project-title">${trans.project_1_title}</div>
     <ul class="pdf-project-list">
+      <li><b>${trans.project_1_desc}</b></li>
       <li>${trans.project_1_li_1}</li>
       <li>${trans.project_1_li_2}</li>
       <li>${trans.project_1_li_3}</li>
@@ -377,7 +378,10 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if ((blockTop + blockHeight) > (PAGE_HEIGHT_PX * pageCount)) {
                 const spaceRemaining = (PAGE_HEIGHT_PX * pageCount) - blockTop;
+                
+                // Add padding to push this specific item to next page
                 block.style.paddingTop = (spaceRemaining + 40) + 'px'; 
+                
                 pageCount++;
             }
         });
