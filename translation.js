@@ -351,7 +351,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- SMART PAGE BREAK LOGIC ---
         await new Promise(resolve => setTimeout(resolve, 500)); // Allow render
         
-        const PAGE_HEIGHT_PX = 1000; 
+        // --- REDUCED PAGE HEIGHT to create Footer Space ---
+        const PAGE_HEIGHT_PX = 850; 
         
         const blocks = tempDiv.querySelectorAll('.pdf-section, .pdf-job, .pdf-project-item, .pdf-cert-item');
         let currentY = 0;
@@ -371,4 +372,67 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log('Capturing optimized PDF layout...');
 
-        // --- SAFE SCALE FACTOR (1.1) to prevent
+        // --- SAFE SCALE FACTOR (1.1) to prevent freezing ---
+        const canvas = await html2canvas(tempDiv, {
+          scale: 1.1,
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: 'white',
+          logging: false
+        });
+
+        const { jsPDF } = window.jspdf;
+        const pageWidth = 8.5;
+        const pageHeight = 11;
+        const margin = 0.4;
+        const contentWidth = pageWidth - (margin * 2);
+        
+        const imgData = canvas.toDataURL('image/png');
+        const canvasWidth = canvas.width;
+        const canvasHeight = canvas.height;
+        
+        const scaledImgHeight = (canvasHeight * contentWidth) / canvasWidth;
+        const usablePageHeight = pageHeight - (margin * 2);
+        const numPages = Math.ceil(scaledImgHeight / usablePageHeight);
+
+        const pdf = new jsPDF({ orientation: 'p', unit: 'in', format: 'letter' });
+
+        for (let pageNum = 0; pageNum < numPages; pageNum++) {
+          if (pageNum > 0) pdf.addPage();
+          
+          const sourceY = (pageNum * canvasHeight * usablePageHeight) / scaledImgHeight;
+          const sourceHeight = Math.min(
+            canvasHeight - sourceY,
+            (canvasHeight * usablePageHeight) / scaledImgHeight
+          );
+          
+          const tempCanvas = document.createElement('canvas');
+          tempCanvas.width = canvasWidth;
+          tempCanvas.height = sourceHeight;
+          
+          const tempCtx = tempCanvas.getContext('2d');
+          tempCtx.fillStyle = 'white';
+          tempCtx.fillRect(0, 0, canvasWidth, sourceHeight);
+          tempCtx.drawImage(canvas, 0, sourceY, canvasWidth, sourceHeight, 0, 0, canvasWidth, sourceHeight);
+          
+          const pageImageData = tempCanvas.toDataURL('image/png');
+          const pageImageHeight = (sourceHeight * contentWidth) / canvasWidth;
+          
+          pdf.addImage(pageImageData, 'PNG', margin, margin, contentWidth, pageImageHeight);
+        }
+
+        pdf.save('Sravani_Venkata_CV.pdf');
+        
+        document.body.removeChild(tempDiv);
+        downloadBtn.disabled = false;
+        downloadBtn.innerHTML = originalButtonText;
+
+      } catch (error) {
+        console.error(error);
+        alert('Error generating PDF: ' + error.message);
+        downloadBtn.disabled = false;
+        downloadBtn.innerHTML = originalButtonText;
+      }
+    });
+  }
+});
