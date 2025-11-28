@@ -348,33 +348,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.body.appendChild(tempDiv);
 
-        // --- IMPROVED SMART PAGE BREAK LOGIC ---
+        // --- ATOMIC BLOCK BREAK LOGIC (Fixes irregular gaps) ---
         await new Promise(resolve => setTimeout(resolve, 500)); 
         
-        // MAXIMIZE PAGE USAGE: 1080px (Uses full page, minimum gap)
         const PAGE_HEIGHT_PX = 1080; 
         
-        const container = tempDiv;
-        let blocks = Array.from(container.querySelectorAll('.pdf-section, .pdf-job, .pdf-project-item, .pdf-cert-item'));
+        // Select every individual item that can be moved, NOT just big sections
+        const atomicBlocks = tempDiv.querySelectorAll('h2, .pdf-job, .pdf-project-item, .pdf-cert-item, .pdf-edu-item, .pdf-skill-group, p.pdf-summary-text');
         
         let currentY = 0;
         let pageCount = 1;
         
-        for (const block of blocks) {
-            const blockHeight = block.offsetHeight;
+        // Use getBoundingClientRect for absolute precision
+        const containerTop = tempDiv.getBoundingClientRect().top;
+
+        atomicBlocks.forEach(block => {
+            const rect = block.getBoundingClientRect();
+            const blockTop = rect.top - containerTop;
+            const blockHeight = rect.height;
             
-            if ((currentY + blockHeight) > (PAGE_HEIGHT_PX * pageCount)) {
-                // Instead of spacer, just push content down using padding
-                const spaceRemaining = (PAGE_HEIGHT_PX * pageCount) - currentY;
+            // If the bottom of this specific item crosses the page line
+            if ((blockTop + blockHeight) > (PAGE_HEIGHT_PX * pageCount)) {
                 
-                block.style.paddingTop = (spaceRemaining + 20) + 'px'; // +20 for clean break
+                // Calculate space needed to push it to next page
+                const spaceRemaining = (PAGE_HEIGHT_PX * pageCount) - blockTop;
                 
-                currentY += (spaceRemaining + 20);
+                // Add margin to push just this item
+                block.style.marginTop = (spaceRemaining + 40) + 'px'; // +40 buffer
+                
                 pageCount++;
             }
-            
-            currentY += blockHeight;
-        }
+        });
         // --- END LOGIC ---
 
         console.log('Capturing optimized PDF layout...');
