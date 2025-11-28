@@ -170,7 +170,6 @@ const translations = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  // --- Language Switching Logic ---
   const setLanguage = (language) => {
     document.documentElement.lang = language;
     localStorage.setItem('language', language);
@@ -198,8 +197,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentLang = savedLang || (browserLang === 'de' ? 'de' : 'en');
   setLanguage(currentLang);
 
-
-  // --- PDF Generation Logic ---
   const downloadBtn = document.getElementById('download-btn');
   if (downloadBtn) {
     const originalButtonText = translations[currentLang].download_button || 'Download Full CV (PDF)';
@@ -220,7 +217,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const tempDiv = document.createElement('div');
         tempDiv.id = 'pdf-temp-container';
         
-        // --- FIXED & SAFE STYLING ---
         tempDiv.style.position = 'fixed';
         tempDiv.style.left = '0';
         tempDiv.style.top = '0';
@@ -235,7 +231,6 @@ document.addEventListener('DOMContentLoaded', () => {
         tempDiv.style.lineHeight = '1.5';
         tempDiv.style.boxSizing = 'border-box';
         
-        // Populate HTML
         tempDiv.innerHTML = `
 <style>
   #pdf-temp-container { font-family: Calibri, Arial, sans-serif; color: #2c3e50; }
@@ -363,18 +358,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.body.appendChild(tempDiv);
 
-        // --- ATOMIC BLOCK BREAK LOGIC (Fixes irregular gaps) ---
         await new Promise(resolve => setTimeout(resolve, 500)); 
         
-        const PAGE_HEIGHT_PX = 1080; 
+        // 1050px fits a standard A4/Letter page nicely with margins
+        const PAGE_HEIGHT_PX = 1050; 
         
-        // Select every individual item that can be moved, NOT just big sections
+        // Select every individual item that can be moved
         const atomicBlocks = tempDiv.querySelectorAll('h2, .pdf-job, .pdf-project-item, .pdf-cert-item, .pdf-edu-item, .pdf-skill-group, p.pdf-summary-text, .pdf-list-item');
         
         let currentY = 0;
         let pageCount = 1;
         
-        // Use getBoundingClientRect for absolute precision
         const containerTop = tempDiv.getBoundingClientRect().top;
 
         atomicBlocks.forEach(block => {
@@ -384,17 +378,14 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // If the bottom of this specific item crosses the page line
             if ((blockTop + blockHeight) > (PAGE_HEIGHT_PX * pageCount)) {
-                
-                // Calculate space needed to push it to next page
                 const spaceRemaining = (PAGE_HEIGHT_PX * pageCount) - blockTop;
                 
-                // Add margin to push just this item
-                block.style.marginTop = (spaceRemaining + 40) + 'px'; // +40 buffer
+                // Add padding to push this specific item to next page
+                block.style.paddingTop = (spaceRemaining + 40) + 'px'; 
                 
                 pageCount++;
             }
         });
-        // --- END LOGIC ---
 
         console.log('Capturing optimized PDF layout...');
 
