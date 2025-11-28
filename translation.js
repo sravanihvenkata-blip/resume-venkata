@@ -33,10 +33,11 @@ const translations = {
     "project_impact_title": "Impact",
     "project_1_impact": "Developed a robust anomaly detection system for Controller Area Network (CAN) bus traffic to identify malicious messages in real-time.",
     "project_1_desc": "Developed a robust anomaly detection system for CAN bus traffic to identify malicious messages in real-time.",
-    "project_1_li_1": "Implemented and compared two distinct models: a supervised classification model with expert-driven feature engineering and an unsupervised LSTM Autoencoder for detecting zero-day anomalies.",
-    "project_1_li_2": "Performed in-depth Exploratory Data Analysis (EDA) to identify statistical differences between normal and attack traffic, validating the feature engineering strategy.",
-    "project_1_li_3": "Engineered key features like Shannon Entropy to effectively distinguish between normal, structured CAN messages and high-entropy 'Fuzzy' attacks.",
-    "project_1_li_4": "Demonstrated the ability to detect various attack types, including DoS, Fuzzy, and Impersonation attacks, by analyzing CAN ID frequency, inter-arrival times, and payload characteristics.",
+    
+    "project_1_li_1": "<b>Methods Used:</b> The notebook employs an ensemble of unsupervised learning models, primarily Isolation Forest (for DoS detection) and Local Outlier Factor (LOF) (for Fuzzy anomaly detection), enhanced by a Heuristic Priority Logic, most notably the 'New ID Priority' rule, to accurately distinguish attack types.",
+    "project_1_li_2": "<b>Features Used:</b> Key features for DoS detection include <i>frequency_hz</i> and <i>log_iat</i>, while Fuzzy detection relies on payload analysis through <i>rolling_volatility</i>, <i>hamming_dist</i>, and the critical <i>is_new_id</i> flag. General message attributes like <i>can_id_dec</i> and <i>dlc</i> are also incorporated.",
+    "project_1_li_3": "<b>Outcome:</b> The result is a robust anomaly detection system achieving high performance across all classes, specifically Fuzzy attack recall of ~97.6%, DoS attack precision of ~98.8%, and normal frame recall of ~99.9%.",
+    "project_1_li_4": "Demonstrated the ability to detect various attack types, including DoS and Fuzzy attacks, by analyzing CAN ID frequency, inter-arrival times, and payload characteristics.",
     
     "experience_title": "Professional Experience (Last 11 Years)",
     "experience_title_print": "Professional Experience (Last 11 Years: Automotive Embedded Systems)",
@@ -74,12 +75,12 @@ const translations = {
     
     "cert_1_title": "Certified Data Scientist | DataScientest",
     "cert_1_li_1": "Completed intensive professional training (Weiterbildung) focusing on end-to-end data pipelines, advanced model building, and deployment strategies.",
-    "cert_1_li_2": "Intensive program focused on applied machine learning, deep learning architectures (CNNs, Transformers), and production-grade data engineering pipelines.",
+    "cert_1_li_2": "Intensive program focused on applied machine learning, deep learning architectures (CNNs, Transformers) and Data Engineering.",
     "cert_1_li_3": "Included modules on MLOps, Model Interpretability, and Responsible AI practices.",
     "cert_1_li_4": "",
 
     "languages_title": "Languages",
-    "languages_details": "German (B2 Level), English (Fluent), Indian Languages: Telugu (Mother tongue), Kannada, Hindi",
+    "languages_details": "English (Fluent), German (B2), Telugu (Mother tongue), Kannada, Hindi",
     
     "download_button": "Download Full CV (PDF)"
   },
@@ -117,10 +118,11 @@ const translations = {
     "project_impact_title": "Einfluss",
     "project_1_impact": "Entwicklung eines robusten Anomalieerkennungssystems für CAN-Bus-Verkehr zur Echtzeit-Identifizierung bösartiger Nachrichten.",
     "project_1_desc": "Entwicklung eines robusten Anomalieerkennungssystems für CAN-Bus-Verkehr zur Echtzeit-Identifizierung bösartiger Nachrichten.",
-    "project_1_li_1": "Implementierung und Vergleich zweier unterschiedlicher Modelle: ein überwachtes Klassifikationsmodell mit expertengesteuertem Feature Engineering und ein unüberwachter LSTM-Autoencoder.",
-    "project_1_li_2": "Durchführung einer tiefgehenden explorativen Datenanalyse (EDA) zur Identifizierung statistischer Unterschiede zwischen normalem und Angriffsverkehr.",
-    "project_1_li_3": "Entwicklung von Schlüsselmerkmalen wie Shannon-Entropie zur effektiven Unterscheidung zwischen normalen CAN-Nachrichten und Fuzzy-Angriffen.",
-    "project_1_li_4": "Erfolgreicher Nachweis verschiedener Angriffstypen (DoS, Fuzzy, Impersonation) durch Analyse der CAN-ID-Häufigkeit und Payload-Charakteristika.",
+    
+    "project_1_li_1": "<b>Verwendete Methoden:</b> Einsatz eines Ensembles aus unüberwachten Lernmodellen, primär Isolation Forest (für DoS) und Local Outlier Factor (LOF) (für Fuzzy), erweitert durch heuristische Prioritätslogik (New ID Priority) zur präzisen Unterscheidung von Angriffstypen.",
+    "project_1_li_2": "<b>Verwendete Features:</b> Hauptmerkmale für DoS sind <i>frequency_hz</i> und <i>log_iat</i>; Fuzzy-Erkennung basiert auf Payload-Analyse mittels <i>rolling_volatility</i>, <i>hamming_dist</i> und dem <i>is_new_id</i> Flag.",
+    "project_1_li_3": "<b>Ergebnis:</b> Ein robustes System mit hoher Leistung: Fuzzy-Recall ~97,6%, DoS-Präzision ~98,8% und Normal-Frame-Recall ~99,9%.",
+    "project_1_li_4": "Nachgewiesene Fähigkeit zur Erkennung verschiedener Angriffstypen durch Analyse von CAN-ID-Frequenz, Zwischenankunftszeiten und Payload-Charakteristika.",
     
     "experience_title": "Berufserfahrung (Letzte 11 Jahre)",
     "experience_title_print": "Berufserfahrung (Letzte 11 Jahre: Automotive Embedded Systems)",
@@ -217,7 +219,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const tempDiv = document.createElement('div');
         tempDiv.id = 'pdf-temp-container';
         
-        // --- FIXED & SAFE STYLING ---
         tempDiv.style.position = 'fixed';
         tempDiv.style.left = '0';
         tempDiv.style.top = '0';
@@ -232,7 +233,6 @@ document.addEventListener('DOMContentLoaded', () => {
         tempDiv.style.lineHeight = '1.5';
         tempDiv.style.boxSizing = 'border-box';
         
-        // Populate HTML
         tempDiv.innerHTML = `
 <style>
   #pdf-temp-container { font-family: Calibri, Arial, sans-serif; color: #2c3e50; }
@@ -301,7 +301,6 @@ document.addEventListener('DOMContentLoaded', () => {
   <div class="pdf-project-item">
     <div class="pdf-project-title">${trans.project_1_title}</div>
     <ul class="pdf-project-list">
-      <li><b>${trans.project_1_desc}</b></li>
       <li>${trans.project_1_li_1}</li>
       <li>${trans.project_1_li_2}</li>
       <li>${trans.project_1_li_3}</li>
@@ -360,7 +359,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.body.appendChild(tempDiv);
 
-        // --- ATOMIC BLOCK BREAK LOGIC (Fixes irregular gaps) ---
         await new Promise(resolve => setTimeout(resolve, 500)); 
         
         const PAGE_HEIGHT_PX = 1050; 
