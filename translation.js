@@ -1,10 +1,10 @@
 const translations = {
   en: {
-    "title": "Sravani H. Venkata - Machine Learning Engineer",
-    "name": "Sravani H. Venkata",
+    "title": "Sravani Hukumathi Venkata - Machine Learning Engineer",
+    "name": "Sravani Hukumathi Venkata",
     "tagline": "Data Scientist with 11 Years of Automotive Expertise & Advanced Training from Université Paris Panthéon-Sorbonne",
-    "email": "sravani.hvenkata@gmail.com",
-    "linkedin": "linkedin.com/in/sravani-hukumathi-venkata-750591110/",
+    "email": "",
+    "linkedin": "",
     "github": "https://github.com/sravanihvenkata-blip/CAN_Bus_Anomaly_Detection",
     "phone": "+4917623213880",
     "location": "Urbach,Rems-Murr Kreis, Baden-Württemberg",
@@ -91,11 +91,11 @@ const translations = {
     "download_button": "Download Full CV (PDF)"
   },
   de: {
-    "title": "Sravani H. Venkata - Machine Learning Engineer",
-    "name": "Sravani H. Venkata",
+    "title": "Sravani Hukumathi Venkata - Machine Learning Engineer",
+    "name": "Sravani Hukumathi Venkata",
     "tagline": "Data Scientist mit 11 Jahren Automotive-Expertise & fortgeschrittener Ausbildung an der Université Paris Panthéon-Sorbonne",
-    "email": "sravani.hvenkata@gmail.com",
-    "linkedin": "linkedin.com/in/sravani-hukumathi-venkata-750591110/",
+    "email": "",
+    "linkedin": "",
     "github": "https://github.com/sravanihvenkata-blip/CAN_Bus_Anomaly_Detection",
     "phone": "+4917623213880",
     "location": "Urbach, Rems-Murr-Kreis, Baden-Württemberg",
