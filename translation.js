@@ -6,7 +6,7 @@ const translations = {
     "email": "",
     "linkedin": "https://www.linkedin.com/in/sravani-hukumathi-venkata-750591110/",
     "github": "",
-    "phone": "+4917623213880",
+    "phone": "",
     "location": "",
     
     "summary_title": "Summary",
@@ -95,10 +95,10 @@ const translations = {
     "name": "Sravani Hukumathi Venkata",
     "tagline": "Data Scientist mit 11 Jahren Automotive-Expertise & fortgeschrittener Ausbildung an der Université Paris Panthéon-Sorbonne",
     "email": "",
-    "linkedin": "https://www.linkedin.com/in/sravani-hukumathi-venkata-750591110/",
-    "github": "https://github.com/sravanihvenkata-blip/CAN_Bus_Anomaly_Detection",
-    "phone": "+4917623213880",
-    "location": "Urbach, Rems-Murr-Kreis, Baden-Württemberg",
+    "linkedin": "",
+    "github": "",
+    "phone": "",
+    "location": "",
     
     "summary_title": "Zusammenfassung",
     "summary_text": "Leistungsstarke Machine Learning Ingenieurin mit 11 Jahren Automotive-Expertise und fortgeschrittener Data Science-Ausbildung an der Université Paris Panthéon-Sorbonne. Nachgewiesene Erfolge in der Entwicklung von KI-gestützter Automatisierung und Echtzeit-Anomalieerkennungssystemen. Zielsetzung: Machine Learning Engineer/Data Scientist Rolle zur Integration von Generativer KI in Embedded Systems.",
