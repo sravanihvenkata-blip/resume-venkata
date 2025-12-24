@@ -5,9 +5,9 @@ const translations = {
     "tagline": "Data Scientist with 11 Years of Automotive Expertise & Advanced Training from Université Paris Panthéon-Sorbonne",
     "email": "",
     "linkedin": "https://www.linkedin.com/in/sravani-hukumathi-venkata-750591110/",
-    "github": "https://github.com/sravanihvenkata-blip/CAN_Bus_Anomaly_Detection",
+    "github": "",
     "phone": "+4917623213880",
-    "location": "Urbach,Rems-Murr Kreis, Baden-Württemberg",
+    "location": "",
     
     "summary_title": "Summary",
     "summary_text": "High-impact Machine Learning Engineer with 11 years of automotive expertise and advanced Data Science training from Université Paris Panthéon-Sorbonne. Proven track record in developing AI-driven automation and real-time anomaly detection systems. Seeking a Machine learning Engineer/Data Scientist role to integrate Generative AI with Embedded Systems.",
