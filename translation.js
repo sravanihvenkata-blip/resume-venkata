@@ -2,29 +2,31 @@ const translations = {
   en: {
     "title": "Sravani H. Venkata - Machine Learning Engineer",
     "name": "Sravani H. Venkata",
-    "tagline": "Machine Learning Engineer specialized in Automotive AI & Data Science",
-    "email": "Email",
-    "linkedin": "LinkedIn",
-    "github": "GitHub",
-    "phone": "+49 [Your Phone Number]",
-    "location": "Germany (Willing to relocate)",
+    "tagline": "Data Scientist with 11 Years of Automotive Expertise & Advanced Training from Université Paris Panthéon-Sorbonne",
+    "email": "sravani.hvenkata@gmail.com",
+    "linkedin": "linkedin.com/in/sravani-hukumathi-venkata-750591110/",
+    "github": "https://github.com/sravanihvenkata-blip/CAN_Bus_Anomaly_Detection",
+    "phone": "+4917623213880",
+    "location": "Urbach,Rems-Murr Kreis, Baden-Württemberg",
     
     "summary_title": "Summary",
-    "summary_text": "High-impact Machine Learning Engineer with 11 years of automotive expertise and advanced Data Science training from Université Paris Panthéon-Sorbonne. Proven track record in developing AI-driven automation and real-time anomaly detection systems. Seeking a Senior ML role to integrate Generative AI with Embedded Systems.",
+    "summary_text": "High-impact Machine Learning Engineer with 11 years of automotive expertise and advanced Data Science training from Université Paris Panthéon-Sorbonne. Proven track record in developing AI-driven automation and real-time anomaly detection systems. Seeking a Machine learning Engineer/Data Scientist role to integrate Generative AI with Embedded Systems.",
     "summary_text_short": "ML Engineer with 11 years of automotive expertise and advanced Data Science training from Université Paris Panthéon-Sorbonne. Expert in real-time anomaly detection and AI automation.",
     
     "skills_title": "Skills",
     "skills_cat_prog": "Programming Languages",
-    "skills_prog_lang_details": "Python (Expert/OOP), SQL, C++, Java",
+    "skills_prog_lang_details": "Python, SQL, C++",
     "skills_cat_ml": "Data Science & Machine Learning",
     "skills_ml_details": "LLMs (LangChain, LlamaIndex), RAG Architecture, Computer Vision (OpenCV), Time Series, Anomaly Detection",
     "skills_cat_dl": "Deep Learning & Neural Networks",
     "skills_dl_details": "Keras, PyTorch, TensorFlow, CNNs, Transformers, Reinforcement Learning",
     "skills_cat_tools": "Tools & Platforms",
-    "skills_tools_details": "Pandas, Scikit-learn, Git, Docker, Streamlit, AWS, Linux, Vector Databases (Pinecone/Milvus)",
+    "skills_tools_details": "Pandas, Scikit-learn, Github, Docker, Streamlit, AWS, Linux",
     "skills_cat_other": "Embedded Systems",
-    "skills_other_details": "AUTOSAR, Embedded C, IoT, Microcontrollers (ESP32/Arduino), RTOS, Hardware-Software Interfacing",
+    "skills_other_details": "AUTOSAR, Embedded C, Microcontrollers (Tricore, RH850, Freescale), Davinci Configurator/Developer",
     "ds_libs_details": "Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Plotly",
+    "skills_cat_soft": "Professional & Soft Skills",
+    "skills_soft_details": "Strategic Stakeholder Communication, Technical Mentorship, Cross-Functional Leadership, Analytical Problem Solving, Agile Project Management",
     
     "projects_title": "Projects",
     "project_1_title": "CAN Bus Anomaly Detection (AI Safety)",
@@ -45,22 +47,22 @@ const translations = {
     
     "exp_1_title": "Project Lead | Montbleu Technologies GmbH, Germany",
     "exp_1_date": "Aug 2021 – Feb 2025",
-    "exp_1_li_1": "Led a team of engineers to adapt software for new vehicle platforms, improving deployment speed by 25%.",
-    "exp_1_li_2": "Architected multicore support and high-speed communication (XCP over Ethernet) for Tier-1 OEMs.",
-    "exp_1_li_3": "Managed project budgets and technical delivery for clients including Stellantis and Vector Informatik.",
-    "exp_1_li_4": "Reduced system-level bugs by 20% through the implementation of automated watchdog monitoring.",
+    "exp_1_li_1": "Directed the full-cycle adaptation of AUTOSAR MCAL for next-generation hardware, ensuring 100% alignment with complex OEM specifications for clients like Stellantis.",
+    "exp_1_li_2": "Engineered high-performance multicore and communication solutions (XCP/Ethernet/CAN), optimizing data throughput and system response.",
+    "exp_1_li_3": "Spearheaded the integration of safety-critical watchdog and SBC functionalities, significantly enhancing system reliability and reducing post-deployment failures.",
+    "exp_1_li_4": "Acted as the primary technical bridge between customer requirements and team execution, delivering zero-defect software solutions to Tier-1 automotive partners.",
     
     "exp_2_title": "Lead Engineer | Avin Systems GmbH, Berlin",
     "exp_2_date": "Sep 2019 – July 2021",
-    "exp_2_li_1": "Steered the Software Architecture for Mercedes-Benz Battery Management Systems (BMS).",
-    "exp_2_li_2": "Ensured 100% compliance with automotive safety standards (AUTOSAR) across all software modules.",
-    "exp_2_li_3": "Mentored a team of 5 junior engineers, resulting in a 30% increase in team coding efficiency.",
+    "exp_2_li_1": "Orchestrated the development of a Battery Management System (BMS) for Mercedes-Benz, steering the software architecture to ensure optimal interface configuration and memory efficient implementation.",
+    "exp_2_li_2": "Successfully delivered an AUTOSAR-compliant base software and diagnostic stack, reducing system integration time and ensuring full adherence to rigorous automotive safety standards.",
+    "exp_2_li_3": "Led the technical mentorship of junior engineers and established high-standard code review processes, resulting in an increase in team coding efficiency and overall software quality.",
     
     "exp_3_title": "Senior Software Engineer | KPIT Technologies, Munich",
     "exp_3_date": "Oct 2013 – June 2019",
-    "exp_3_li_1": "Developed core software for BMW, Continental, and ZF-TRW, focusing on vehicle communication.",
-    "exp_3_li_2": "Optimized diagnostics protocols, reducing software flashing time by 15%.",
-    "exp_3_li_3": "Collaborated with cross-functional hardware teams to integrate seamless software updates.",
+    "exp_3_li_1": "Developed and Configured safety-critical embedded software for Tier-1 suppliers and OEMs including HMK, ZF-TRW, BMW and Continental, ensuring robust performance across millions of production vehicles.",
+    "exp_3_li_2": "Mastered complex communication protocols (FlexRay, CAN, LIN) and diagnostic integration, establishing the foundational expertise required for advanced vehicle data analysis.",
+    "exp_3_li_3": "Architected comprehensive software designs and facilitated cross-functional collaboration with hardware teams to streamline system integration and reduce development cycles.",
     
     "tech_skills_title": "Automotive & Embedded Expertise",
     "tech_skills_desc_1": "Embedded C, AUTOSAR, Diagnostics (UDS), CAN, FlexRay, Ethernet, Davinci Configurator.",
@@ -69,7 +71,7 @@ const translations = {
     "education_title": "Education",
     "edu_1_title": "Advanced Data Science Training",
     "edu_1_desc": "Université Paris Panthéon-Sorbonne",
-    "edu_1_date": "2024",
+    "edu_1_date": "Sep 2025 - Dec 2025 (666 Teaching Units)",
     "edu_2_title": "Bachelor of Engineering (Instrumentation Technology)",
     "edu_2_desc": "B.V.B College of Engineering and Technology, Hubli, India",
     "edu_2_date": "2009 – 2013",
@@ -89,93 +91,95 @@ const translations = {
     "download_button": "Download Full CV (PDF)"
   },
   de: {
-    "title": "Sravani H. Venkata - Data Scientist",
+    "title": "Sravani H. Venkata - Machine Learning Engineer",
     "name": "Sravani H. Venkata",
-    "tagline": "Data Scientist mit 11 Jahren Erfahrung in der Automobil-Softwareentwicklung",
-    "email": "E-Mail",
-    "linkedin": "LinkedIn",
-    "github": "GitHub",
-    "phone": "Telefon",
-    "location": "Standort",
+    "tagline": "Data Scientist mit 11 Jahren Automotive-Expertise & fortgeschrittener Ausbildung an der Université Paris Panthéon-Sorbonne",
+    "email": "sravani.hvenkata@gmail.com",
+    "linkedin": "linkedin.com/in/sravani-hukumathi-venkata-750591110/",
+    "github": "https://github.com/sravanihvenkata-blip/CAN_Bus_Anomaly_Detection",
+    "phone": "+4917623213880",
+    "location": "Urbach, Rems-Murr-Kreis, Baden-Württemberg",
     
     "summary_title": "Zusammenfassung",
-    "summary_text": "ML-Ingenieurin mit 11 Jahren Automotive-Expertise und fortgeschrittener Data Science-Ausbildung an der Université Paris Panthéon-Sorbonne. Spezialisiert auf KI-Automatisierung und Echtzeit-Anomalieerkennung.",
-    "summary_text_short": "ML-Ingenieurin mit 11 Jahren Automotive-Expertise und Weiterbildung an der Sorbonne. Expertin für KI-Sicherheitssysteme.",
+    "summary_text": "Leistungsstarke Machine Learning Ingenieurin mit 11 Jahren Automotive-Expertise und fortgeschrittener Data Science-Ausbildung an der Université Paris Panthéon-Sorbonne. Nachgewiesene Erfolge in der Entwicklung von KI-gestützter Automatisierung und Echtzeit-Anomalieerkennungssystemen. Zielsetzung: Machine Learning Engineer/Data Scientist Rolle zur Integration von Generativer KI in Embedded Systems.",
+    "summary_text_short": "ML-Ingenieurin mit 11 Jahren Automotive-Expertise und Weiterbildung an der Sorbonne. Expertin für Echtzeit-Anomalieerkennung und KI-Automatisierung.",
     
     "skills_title": "Fähigkeiten",
     "skills_cat_prog": "Programmiersprachen",
-    "skills_prog_lang_details": "Python (Expert), SQL, C++, Java",
+    "skills_prog_lang_details": "Python, SQL, C++",
     "skills_cat_ml": "Data Science & Machine Learning",
-    "skills_ml_details": "LLMs, RAG, Computer Vision, Zeitreihenanalyse, Anomalieerkennung",
-    "skills_cat_dl": "Deep Learning",
-    "skills_dl_details": "Keras, PyTorch, TensorFlow, CNNs, Transformers",
+    "skills_ml_details": "LLMs (LangChain, LlamaIndex), RAG-Architektur, Computer Vision (OpenCV), Zeitreihen, Anomalieerkennung",
+    "skills_cat_dl": "Deep Learning & Neuronale Netze",
+    "skills_dl_details": "Keras, PyTorch, TensorFlow, CNNs, Transformers, Reinforcement Learning",
     "skills_cat_tools": "Tools & Plattformen",
-    "skills_tools_details": "Pandas, Scikit-learn, Git, Docker, AWS, Vector Databases",
+    "skills_tools_details": "Pandas, Scikit-learn, Github, Docker, Streamlit, AWS, Linux",
     "skills_cat_other": "Embedded Systems",
-    "skills_other_details": "AUTOSAR, Embedded C, IoT, Mikrocontroller, Echtzeitsysteme",
+    "skills_other_details": "AUTOSAR, Embedded C, Mikrocontroller (Tricore, RH850, Freescale), Davinci Configurator/Developer",
     "ds_libs_details": "Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Plotly",
+    "skills_cat_soft": "Soft Skills & Führung",
+    "skills_soft_details": "Strategische Stakeholder-Kommunikation, technisches Mentoring, funktionsübergreifende Führung, analytische Problemlösung, agiles Projektmanagement",
     
     "projects_title": "Projekte",
     "project_1_title": "CAN-Bus Anomalieerkennung (KI-Sicherheit)",
     "project_tech_title": "Technologien",
-    "project_1_tech": "Python, Keras, LSTM Autoencoder",
-    "project_methods_title": "Methoden",
-    "project_1_methods": "Unüberwachtes Lernen, Echtzeitanalyse",
+    "project_1_tech": "Python, Keras, LSTM Autoencoder, Isolation Forest",
+    "project_methods_title": "Methoden & Techniken",
+    "project_1_methods": "Unüberwachtes Lernen, Feature Engineering, Echtzeitanalyse",
     "project_impact_title": "Einfluss",
-    "project_1_impact": "Entwicklung eines Sicherheitssystems, das Cyberangriffe auf Fahrzeuge mit 97,6% Genauigkeit erkennt.",
-    "project_1_desc": "KI-System zur Echtzeit-Erkennung von bösartigen Nachrichten im Fahrzeugnetzwerk.",
-    "project_1_li_1": "<b>Methodik:</b> Einsatz von KI zur automatischen Überwachung und Kennzeichnung verdächtiger Aktivitäten.",
-    "project_1_li_2": "<b>Ergebnis:</b> 98,8% Präzision bei der Identifizierung von DoS-Angriffen.",
-    "project_1_li_3": "<b>Abschluss:</b> Erfolgreiche Brücke zwischen Automotive-Hardware und KI-Sicherheitsprotokollen.",
-    "project_1_li_4": "",
+    "project_1_impact": "Entwicklung eines automatisierten Sicherheitssystems zur Identifizierung von Cyberangriffen auf Fahrzeuge mit 97,6 % Genauigkeit.",
+    "project_1_desc": "Entwicklung eines robusten KI-Systems zur Echtzeiterkennung bösartiger Nachrichten in Fahrzeugkommunikationsnetzen (CAN-Bus).",
+    "project_1_li_1": "<b>Methodik:</b> Einsatz fortschrittlicher KI-Modelle zur automatischen Überwachung von Fahrzeugdaten und Kennzeichnung verdächtiger Aktivitäten.",
+    "project_1_li_2": "<b>Technischer Vorteil:</b> Analyse von Nachrichtenfrequenz und -inhalt zur Unterscheidung zwischen normalem Fahrbetrieb und Cyberangriffen.",
+    "project_1_li_3": "<b>Ergebnis:</b> Erzielung einer Präzisionsrate von 98,8 % bei der Identifizierung von Denial-of-Service (DoS)-Angriffen.",
+    "project_1_li_4": "Nachgewiesene Fähigkeit, komplexe Automotive-Hardware mit modernen KI-Sicherheitsprotokollen zu verknüpfen.",
     
     "experience_title": "Berufserfahrung",
     "experience_title_print": "Berufserfahrung (11 Jahre Automotive & KI)",
     
-    "exp_1_title": "Project Lead | Montbleu Technologies GmbH",
+    "exp_1_title": "Project Lead | Montbleu Technologies GmbH, Deutschland",
     "exp_1_date": "Aug 2021 – Feb 2025",
-    "exp_1_li_1": "Leitung von Teams zur Softwareanpassung, Steigerung der Bereitstellungsgeschwindigkeit um 25%.",
-    "exp_1_li_2": "Implementierung von Multicore-Support und Hochgeschwindigkeitsprotokollen für Top-OEMs.",
-    "exp_1_li_3": "Verantwortung für Projektbudgets und technische Lieferung für Kunden wie Stellantis.",
-    "exp_1_li_4": "Reduzierung von Systemfehlern um 20% durch automatisierte Überwachung.",
+    "exp_1_li_1": "Leitung der vollständigen Anpassung von AUTOSAR MCAL für Hardware der nächsten Generation; Sicherstellung der 100%igen Übereinstimmung mit OEM-Spezifikationen (z. B. Stellantis).",
+    "exp_1_li_2": "Entwicklung von Hochleistungs-Multicore- und Kommunikationslösungen (XCP/Ethernet/CAN) zur Optimierung des Datendurchsatzes und der Systemantwortzeiten.",
+    "exp_1_li_3": "Federführende Integration sicherheitskritischer Watchdog- und SBC-Funktionen zur signifikanten Erhöhung der Systemzuverlässigkeit.",
+    "exp_1_li_4": "Zentrale technische Schnittstelle zwischen Kundenanforderungen und Teamausführung; Lieferung von fehlerfreien Softwarelösungen an Tier-1-Partner.",
     
     "exp_2_title": "Lead Engineer | Avin Systems GmbH, Berlin",
     "exp_2_date": "Sep 2019 – Juli 2021",
-    "exp_2_li_1": "Softwarearchitektur für Mercedes-Benz Batteriemanagementsysteme (BMS).",
-    "exp_2_li_2": "Sicherstellung der 100%igen AUTOSAR-Compliance.",
-    "exp_2_li_3": "Mentoring von 5 Ingenieuren, Steigerung der Effizienz um 30%.",
+    "exp_2_li_1": "Orchestrierung der Entwicklung eines Batteriemanagementsystems (BMS) für Mercedes-Benz; Steuerung der Softwarearchitektur für optimale Schnittstellenkonfiguration.",
+    "exp_2_li_2": "Erfolgreiche Bereitstellung von AUTOSAR-konformer Basissoftware und Diagnose-Stacks; Reduzierung der Systemintegrationszeit unter Einhaltung strengster Sicherheitsstandards.",
+    "exp_2_li_3": "Technisches Mentoring von Junior-Ingenieuren und Etablierung hochwertiger Code-Review-Prozesse zur Steigerung der Teameffizienz und Softwarequalität.",
     
     "exp_3_title": "Senior Software Engineer | KPIT Technologies, München",
     "exp_3_date": "Okt 2013 – Juni 2019",
-    "exp_3_li_1": "Entwicklung von Software für BMW, Continental und ZF-TRW.",
-    "exp_3_li_2": "Optimierung der Diagnoseprotokolle, Zeitersparnis beim Software-Flashing um 15%.",
-    "exp_3_li_3": "Zusammenarbeit mit Hardware-Teams für nahtlose Systemintegration.",
+    "exp_3_li_1": "Entwicklung und Konfiguration sicherheitskritischer Embedded-Software für Tier-1-Zulieferer und OEMs (u.a. BMW, Continental, ZF-TRW) für Millionen von Serienfahrzeugen.",
+    "exp_3_li_2": "Beherrschung komplexer Kommunikationsprotokolle (FlexRay, CAN, LIN) und Diagnoseintegration als Basis für fortgeschrittene Fahrzeugdatenanalyse.",
+    "exp_3_li_3": "Entwurf umfassender Softwaredesigns und Förderung der cross-funktionalen Zusammenarbeit mit Hardwareteams zur Rationalisierung der Systemintegration.",
     
-    "tech_skills_title": "Automotive Expertise",
-    "tech_skills_desc_1": "Embedded C, AUTOSAR, Diagnose (UDS), CAN, FlexRay, Davinci Configurator.",
-    "tech_skills_desc_2": "Führung: Erfahrung in der Leitung grenzüberschreitender Teams.",
+    "tech_skills_title": "Automotive & Embedded Expertise",
+    "tech_skills_desc_1": "Embedded C, AUTOSAR, Diagnose (UDS), CAN, FlexRay, Ethernet, Davinci Configurator.",
+    "tech_skills_desc_2": "Führung: Leitung funktionsübergreifender Teams und Lieferung komplexer Softwarelösungen für führende OEMs.",
     
     "education_title": "Ausbildung",
-    "edu_1_title": "Advanced Data Science Training",
+    "edu_1_title": "Fortgeschrittene Data Science Ausbildung",
     "edu_1_desc": "Université Paris Panthéon-Sorbonne",
-    "edu_1_date": "2024",
-    "edu_2_title": "Bachelor of Engineering",
-    "edu_2_desc": "B.V.B College of Engineering, Indien",
+    "edu_1_date": "Sep 2025 - Dez 2025 (666 Unterrichtseinheiten)",
+    "edu_2_title": "Bachelor of Engineering (Instrumentation Technology)",
+    "edu_2_desc": "B.V.B College of Engineering and Technology, Hubli, Indien",
     "edu_2_date": "2009 – 2013",
     
     "certs_title": "Zertifizierungen",
-    "certs_details": "Data Science Zertifikate",
+    "certs_details": "Professionelle Data Science Zertifizierungen",
     
     "cert_1_title": "Zertifizierte Data Scientist | DataScientest",
-    "cert_1_li_1": "Abschluss einer intensiven Weiterbildung mit Fokus auf End-to-End-Datenpipelines, fortgeschrittene Modellerstellung und Deployment.",
-    "cert_1_li_2": "Fokus auf angewandtes maschinelles Lernen, Deep Learning (CNNs, Transformers) und Data Engineering.",
-    "cert_1_li_3": "Module zu MLOps, Modellinterpretierbarkeit und verantwortungsvoller KI.",
+    "cert_1_li_1": "Intensivprogramm (Weiterbildung) in MLOps, Deep Learning Architekturen (CNNs, Transformers) und Big Data.",
+    "cert_1_li_2": "Fokus auf End-to-End-Datenpipelines und Bereitstellung geschäftsreifer KI-Modelle.",
+    "cert_1_li_3": "Module zu Modellinterpretierbarkeit und verantwortungsvollen KI-Praktiken.",
     "cert_1_li_4": "",
 
     "languages_title": "Sprachen",
-    "languages_details": "Deutsch (B2), Englisch (Fließend), Telugu (Muttersprache), Kannada, Hindi",
+    "languages_details": "Englisch (Fließend), Deutsch (B2), Telugu (Muttersprache), Kannada, Hindi",
     
-    "download_button": "Lebenslauf herunterladen (PDF)"
+    "download_button": "Vollständigen Lebenslauf herunterladen (PDF)"
   }
 };
 
@@ -286,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
   <div class="pdf-header-name">${trans.name}</div>
   <div class="pdf-header-contact">
     <span>${trans.email}: sravani.hvenkata@gmail.com</span>
-    <span>${trans.phone}: [Insert Number] | ${trans.location}: Germany</span>
+    <span>${trans.phone}: ${trans.phone} | ${trans.location}: Germany</span>
     <span>${trans.linkedin}: linkedin.com/in/sravani-hukumathi-venkata-750591110</span>
   </div>
 </div>
@@ -302,6 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
   <div class="pdf-skill-group"><span class="pdf-skill-label">${trans.skills_cat_dl}</span><span class="pdf-skill-content">${trans.skills_dl_details}</span></div>
   <div class="pdf-skill-group"><span class="pdf-skill-label">${trans.skills_cat_other}</span><span class="pdf-skill-content">${trans.skills_other_details}</span></div>
   <div class="pdf-skill-group"><span class="pdf-skill-label">${trans.skills_cat_prog}</span><span class="pdf-skill-content">${trans.skills_prog_lang_details}</span></div>
+  <div class="pdf-skill-group"><span class="pdf-skill-label">${trans.skills_cat_soft}</span><span class="pdf-skill-content">${trans.skills_soft_details}</span></div>
 </div>
 
 <div class="pdf-section">
