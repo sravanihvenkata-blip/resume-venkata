@@ -1,58 +1,87 @@
-/* Styling for Web View */
+/* General Styles */
 body {
-    background-color: #f4f7f6;
-    color: #2c3e50;
-    line-height: 1.5;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.5; /* Tightened for space efficiency */
+    background-color: #f8f9fa;
+}
+
+h1, h2 {
+    color: #0056b3;
 }
 
 .profile-photo {
-    width: 150px;
-    height: 150px;
+    width: 140px; /* Slightly smaller to save vertical space */
+    height: 140px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #2980b9;
+    border: 3px solid #0056b3;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
 }
 
 .section-title {
     color: #1a3a52;
     text-transform: uppercase;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: bold;
     border-bottom: 2px solid #2980b9;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-    margin-top: 20px;
+    padding-bottom: 3px;
+    margin-bottom: 12px;
+    margin-top: 15px; /* Consistent spacing to control page breaks */
 }
 
 .contact-bar {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #555;
+    margin-bottom: 5px;
 }
 
-.text-justify {
-    text-align: justify;
+.card {
+    border: none;
+    background: transparent;
 }
 
-/* Fixes for PDF Generation */
+.card-body {
+    padding: 0.5rem 0; /* Reduced padding to fit more content */
+}
+
+/* PDF Generation Specific Styles */
+/* These rules ensure the shape fills exactly 2 pages */
 .pdf-generation-mode {
-    width: 800px !important; /* Forces A4 aspect ratio shape */
+    width: 800px !important; 
     margin: 0 auto !important;
     background: white !important;
+    font-size: 10.5pt; /* Standardized font size for readability/spacing */
 }
 
 .pdf-generation-mode #cv-container {
     width: 800px !important;
     max-width: 800px !important;
-    padding: 20px !important;
+    padding: 40px !important; /* Standard margins for A4 */
+}
+
+.pdf-generation-mode .section-title {
+    margin-top: 25px; /* Forces sections to breathe and fill the second page */
 }
 
 .pdf-generation-mode .no-print {
     display: none !important;
 }
 
-.pdf-generation-mode .card {
-    box-shadow: none !important;
-    border: 1px solid #eee !important;
+/* Prevent items from breaking across pages in the middle of a sentence */
+.pdf-generation-mode .card, 
+.pdf-generation-mode section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.pdf-generation-mode h2 {
+    page-break-after: avoid;
+}
+
+/* Ensure the summary fills space effectively */
+.pdf-generation-mode #summary p {
+    margin-bottom: 20px;
+    text-align: justify;
 }
