@@ -21,7 +21,7 @@ const translations = {
     "skills_prog_lang_details": "Python (Expert), SQL, C++, Embedded C",
     "skills_cat_other": "Embedded Systems",
     "skills_other_details": "AUTOSAR, CAN, FlexRay, Ethernet, Microcontrollers (Tricore, RH850)",
-    "skills_cat_tools": "Tools",
+    "skills_cat_tools": "Tools, Platforms & Libraries",
     "skills_tools_details": "Github, Docker, AWS, Scikit-learn, Pandas, Davinci Configurator",
     "skills_cat_soft": "Soft Skills",
     "skills_soft_details": "Strategic Stakeholder Communication, Technical Mentorship, Agile Leadership",
@@ -90,7 +90,7 @@ const translations = {
     "skills_other_details": "AUTOSAR, CAN, FlexRay, Ethernet, Mikrocontroller",
     "skills_cat_soft": "Soft Skills",
     "skills_soft_details": "Stakeholder-Kommunikation, Mentoring, Agile Führung",
-    "skills_cat_tools": "Tools",
+    "skills_cat_tools": "Tools, Platforms & Libraries",
     "skills_tools_details": "Github, Docker, AWS, Scikit-learn, Davinci Configurator",
     
     "projects_title": "Projekte",
