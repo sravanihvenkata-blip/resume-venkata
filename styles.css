@@ -98,9 +98,14 @@ h1, h2 {
         display: none !important;
     }
     
+    html, body {
+        height: auto;
+        overflow: visible;
+    }
+    
     body {
         background: white;
-        font-size: 9.5pt; /* Reduced font size for print output */
+        font-size: 8pt; /* Reduced font size for print output as requested */
     }
 
     #cv-container {
@@ -108,6 +113,7 @@ h1, h2 {
         max-width: none !important;
         margin: 0 !important;
         padding: 0 !important;
+        overflow: visible;
     }
 
     /* Ensure background colors/borders print */
@@ -131,7 +137,7 @@ h1, h2 {
         margin-bottom: 5px !important;
     }
     
-    p, ul, .mb-4, .mb-3, .mb-2 {
+    p, ul, .mb-5, .mb-4, .mb-3, .mb-2 {
         margin-bottom: 5px !important; /* Tighten vertical spacing */
     }
 
@@ -151,7 +157,7 @@ h1, h2 {
     /* Margins for the page itself are handled by the browser print dialog, 
        but we can suggest standard ones */
     @page {
-        margin: 20mm;
+        margin: 15mm; /* Slightly tighter margins */
         size: auto; 
     }
 }
