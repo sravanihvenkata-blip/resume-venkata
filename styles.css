@@ -105,7 +105,7 @@ h1, h2 {
     
     body {
         background: white;
-        font-size: 8pt; /* Reduced font size for print output as requested */
+        font-size: 9pt; /* Increased font size for print output as requested */
     }
 
     #cv-container {
@@ -131,7 +131,10 @@ h1, h2 {
         page-break-inside: auto; /* Allow sections to split across pages */
     }
     
-    h1, h2, h3, h4, h5 {
+    h1 {
+        font-size: 16pt !important; /* Adjusted for print output to scale with 9pt base */
+    }
+    h2, h3, h4, h5 {
         page-break-after: avoid;
         margin-top: 10px !important; /* Reduce spacing for print */
         margin-bottom: 5px !important;
@@ -157,7 +160,7 @@ h1, h2 {
     /* Margins for the page itself are handled by the browser print dialog, 
        but we can suggest standard ones */
     @page {
-        margin: 15mm; /* Slightly tighter margins */
+        margin: 0; /* Attempt to remove browser default headers/footers by setting margins to 0 */
         size: auto; 
     }
 }
