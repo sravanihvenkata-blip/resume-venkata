@@ -62,7 +62,8 @@ h1, h2 {
 }
 
 .pdf-generation-mode .section-title {
-    margin-top: 25px; /* Forces sections to breathe and fill the second page */
+    margin-top: 35px; /* Increased to push content and fill 2 pages better */
+    margin-bottom: 15px;
 }
 
 .pdf-generation-mode .no-print {
@@ -82,6 +83,11 @@ h1, h2 {
 
 /* Ensure the summary fills space effectively */
 .pdf-generation-mode #summary p {
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* Increased breathing room */
     text-align: justify;
+    line-height: 1.6; /* Improved readability for PDF */
+}
+
+.pdf-generation-mode .card-body {
+    padding: 0.8rem 0; /* Restore some padding for PDF look */
 }

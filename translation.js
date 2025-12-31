@@ -167,17 +167,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const canvas = await html2canvas(container, {
-        scale: 2, // Fixed blurry text
+        scale: 2,
         useCORS: true,
-        windowWidth: 800 // Fixed shape issue
+        windowWidth: 800,
+        height: container.scrollHeight + 50, // Added extra buffer
+        windowHeight: container.scrollHeight + 100 // Ensure window context is tall enough
       });
 
       const { jsPDF } = window.jspdf;
       const pdf = new jsPDF('p', 'mm', 'a4');
       const imgWidth = 210;
+      const pageHeight = 297;
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      let heightLeft = imgHeight;
+      let position = 0;
       
-      pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, imgWidth, imgHeight);
+      pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+
+      while (heightLeft > 0) {
+        position -= pageHeight;
+        pdf.addPage();
+        pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
+
       pdf.save('Sravani_Venkata_CV.pdf');
     } catch (e) {
       alert("Error generating PDF");
