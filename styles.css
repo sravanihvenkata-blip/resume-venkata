@@ -173,7 +173,7 @@ h1, h2 {
     /* Margins for the page itself are handled by the browser print dialog, 
        but we can suggest standard ones */
     @page {
-        margin: 12mm; /* Restore margins to fix "page sides" issue */
+        margin: 12mm 20mm; /* Top/Bottom 12mm, Left/Right 20mm for more side space */
         size: auto; 
     }
 
