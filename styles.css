@@ -4,6 +4,7 @@ body {
     color: #333;
     line-height: 1.5; /* Tightened for space efficiency */
     background-color: #f8f9fa;
+    font-size: 0.95em; /* Slightly reduced base font size */
 }
 
 h1, h2 {
@@ -52,7 +53,7 @@ h1, h2 {
     width: 800px !important; 
     margin: 0 auto !important;
     background: white !important;
-    font-size: 10.5pt; /* Standardized font size for readability/spacing */
+    font-size: 10pt; /* Reduced font size for PDF output */
 }
 
 .pdf-generation-mode #cv-container {
@@ -99,6 +100,7 @@ h1, h2 {
     
     body {
         background: white;
+        font-size: 9.5pt; /* Reduced font size for print output */
     }
 
     #cv-container {
@@ -115,12 +117,35 @@ h1, h2 {
     }
     
     /* Clean page breaks */
-    section, .card {
+    .card {
         page-break-inside: avoid;
+    }
+    
+    section {
+        page-break-inside: auto; /* Allow sections to split across pages */
     }
     
     h1, h2, h3, h4, h5 {
         page-break-after: avoid;
+        margin-top: 10px !important; /* Reduce spacing for print */
+        margin-bottom: 5px !important;
+    }
+    
+    p, ul, .mb-4, .mb-3, .mb-2 {
+        margin-bottom: 5px !important; /* Tighten vertical spacing */
+    }
+
+    .card-body {
+        padding: 2px 0 !important;
+    }
+    
+    .profile-photo {
+        width: 100px; /* Smaller photo for print */
+        height: 100px;
+    }
+
+    header {
+        margin-bottom: 10px !important;
     }
 
     /* Margins for the page itself are handled by the browser print dialog, 
