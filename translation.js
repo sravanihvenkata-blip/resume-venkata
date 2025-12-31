@@ -29,12 +29,12 @@ const translations = {
     "projects_title": "Projects",
     "project_1_title": "CAN Bus Anomaly Detection (AI Safety)",
     "project_1_desc": "Built an automated security system identifying vehicle cyber-attacks with 97.6% accuracy.",
-    "project_1_li_1": "Used LSTM Autoencoders to monitor vehicle data and flag suspicious activities automatically.",
-    "project_1_li_2": "Analyzed message frequency to distinguish between normal driving and cyber-attacks.",
-    "project_1_li_3": "Achieved a 98.8% precision rate in identifying Denial of Service (DoS) attacks.",
-    "project_1_li_4": "Bridged complex automotive hardware with modern AI security protocols.",
+    "project_1_li_1": "Methods Used: The notebook employs an ensemble of unsupervised learning models, primarily Isolation Forest (for DoS detection) and Local Outlier Factor (LOF) (for Fuzzy anomaly detection), enhanced by a Heuristic Priority Logic, most notably the 'New ID Priority' rule, to accurately distinguish attack types.",
+    "project_1_li_2": "Features Used: Key features for DoS detection include frequency_hz and log_iat, while Fuzzy detection relies on payload analysis through rolling_volatility, hamming_dist, and the critical is_new_id flag. General message attributes like can_id_dec and dic are also incorporated.",
+    "project_1_li_3": "Outcome: The result is a robust anomaly detection system achieving high performance across all classes, specifically Fuzzy attack recall of ~97.6%, DoS attack precision of ~98.8%, and normal frame recall of ~99.9%.",
+    "project_1_li_4": "Demonstrated the ability to detect various attack types, including DoS and Fuzzy attacks, by analyzing CAN ID frequency, inter-arrival times, and payload characteristics.",
     
-    "experience_title": "Professional Experience",
+    "experience_title": "PROFESSIONAL EXPERIENCE (LAST 11 YEARS: AUTOMOTIVE EMBEDDED SYSTEMS)",
     "exp_1_title": "Project Lead | Montbleu Technologies GmbH, Germany",
     "exp_1_date": "Aug 2021 – Feb 2025",
     "exp_1_li_1": "Directed full-cycle AUTOSAR MCAL adaptation for next-gen hardware, ensuring 100% OEM alignment.",
@@ -157,48 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentLang = localStorage.getItem('language') || 'en';
   setLanguage(currentLang);
 
-  document.getElementById('download-btn').addEventListener('click', async () => {
-    const btn = document.getElementById('download-btn');
-    const container = document.getElementById('cv-container');
-    
-    btn.disabled = true;
-    btn.innerHTML = "Generating...";
-    document.body.classList.add('pdf-generation-mode');
-
-    try {
-      const canvas = await html2canvas(container, {
-        scale: 2,
-        useCORS: true,
-        windowWidth: 800,
-        height: container.scrollHeight + 50, // Added extra buffer
-        windowHeight: container.scrollHeight + 100 // Ensure window context is tall enough
-      });
-
-      const { jsPDF } = window.jspdf;
-      const pdf = new jsPDF('p', 'mm', 'a4');
-      const imgWidth = 210;
-      const pageHeight = 297;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      let heightLeft = imgHeight;
-      let position = 0;
-      
-      pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, imgWidth, imgHeight);
-      heightLeft -= pageHeight;
-
-      while (heightLeft > 0) {
-        position -= pageHeight;
-        pdf.addPage();
-        pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
-      }
-
-      pdf.save('Sravani_Venkata_CV.pdf');
-    } catch (e) {
-      alert("Error generating PDF");
-    } finally {
-      document.body.classList.remove('pdf-generation-mode');
-      btn.disabled = false;
-      btn.innerHTML = translations[localStorage.getItem('language') || 'en'].download_button;
-    }
+  document.getElementById('download-btn').addEventListener('click', () => {
+      window.print();
   });
 });

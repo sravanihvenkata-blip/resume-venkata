@@ -91,3 +91,42 @@ h1, h2 {
 .pdf-generation-mode .card-body {
     padding: 0.8rem 0; /* Restore some padding for PDF look */
 }
+
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background: white;
+    }
+
+    #cv-container {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Ensure background colors/borders print */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    /* Clean page breaks */
+    section, .card {
+        page-break-inside: avoid;
+    }
+    
+    h1, h2, h3, h4, h5 {
+        page-break-after: avoid;
+    }
+
+    /* Margins for the page itself are handled by the browser print dialog, 
+       but we can suggest standard ones */
+    @page {
+        margin: 20mm;
+        size: auto; 
+    }
+}
