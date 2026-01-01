@@ -139,11 +139,11 @@ h1, h2 {
         display: block;
     }
 
-    /* Force Professional Experience to start on a new page with extra top space */
+    /* Force Professional Experience to flow naturally */
     #experience .section-title {
-        page-break-before: always !important;
-        break-before: page !important;
-        margin-top: 60px !important; /* Simulates empty page header space */
+        page-break-before: auto !important;
+        break-before: auto !important;
+        margin-top: 25px !important; /* Restore standard spacing */
     }
 
     /* Alternative Fix: If the title is inside a container, 
