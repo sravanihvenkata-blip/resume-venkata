@@ -123,18 +123,16 @@ h1, h2 {
         print-color-adjust: exact !important;
     }
     
-    /* Clean page breaks */
-    .card, ul, li, section {
-        page-break-inside: auto; /* Allow content to break across pages */
+    /* Allow content to split freely across pages */
+    section, .card, .card-body, ul, li, div {
+        page-break-inside: auto !important;
+        break-inside: auto !important;
     }
-    
-    section {
-        page-break-inside: auto; /* Allow sections to split across pages */
-    }
-    
-    h1 {
-        font-size: 14pt !important; /* Reduced name font size as requested */
-        margin-bottom: 5px !important; /* Reduced space below name */
+
+    /* Only keep headers from being stranded at bottom of page */
+    h1, h2, h5, .section-title {
+        page-break-after: avoid;
+        break-after: avoid;
     }
 
     .lead {
