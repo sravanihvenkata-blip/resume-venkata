@@ -124,8 +124,8 @@ h1, h2 {
     }
     
     /* Clean page breaks */
-    .card, ul, li {
-        page-break-inside: avoid;
+    .card, ul, li, section {
+        page-break-inside: auto; /* Allow content to break across pages */
     }
     
     section {
