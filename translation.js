@@ -118,7 +118,7 @@ const translations = {
     "exp_2_li_2": "Bereitstellung AUTOSAR-konformer Stacks zur Reduzierung der Integrationszeit.",
     "exp_2_li_3": "Mentoring von 5 Ingenieuren, Steigerung der Effizienz.",
     
-    "exp_3_title": "Senior Software Engineer | KPIT Technologies, München",
+    "exp_3_title": "Senior Software Engineer | KPIT Technologies GmbH, München | KPIT Technologies Pvt Ltd, Indien",
     "exp_3_date": "Okt 2013 – Juni 2019",
     "exp_3_li_1": "Softwareentwicklung für BMW und Continental für Millionen von Fahrzeugen.",
     "exp_3_li_2": "Experte für CAN/FlexRay-Protokolle als Basis für Datenanalysen.",
