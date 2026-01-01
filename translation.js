@@ -107,7 +107,7 @@ const translations = {
     "experience_title": "BERUFSERFAHRUNG (LETZTE 11 JAHRE: AUTOMOTIVE EMBEDDED SYSTEMS)",
     "exp_1_title": "Project Lead | Montbleu Technologies GmbH, Deutschland",
     "exp_1_date": "Aug 2021 – Feb 2025",
-    "exp_1_li_1": "Leitung der AUTOSAR MCAL-Anpassung für Next-Gen-Hardware.",
+    "exp_1_li_1": "Leitung der AUTOSAR MCAL-Anpassung für Next-Gen-Hardware unter Gewährleistung von 100% OEM-Konformität.",
     "exp_1_li_2": "Entwicklung von Multicore-Lösungen, Optimierung des Datendurchsatzes.",
     "exp_1_li_3": "Integration sicherheitskritischer Funktionen zur Erhöhung der Zuverlässigkeit.",
     "exp_1_li_4": "Technische Schnittstelle für Tier-1-Automobilpartner.",
