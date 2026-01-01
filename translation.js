@@ -13,18 +13,20 @@ const translations = {
     "summary_text_short": "ML Engineer with 11 years of automotive expertise and Sorbonne AI training. Expert in real-time anomaly detection and AI automation.",
     
     "skills_title": "Skills",
-    "skills_cat_ml": "Data Science & ML",
-    "skills_ml_details": "LLMs (LangChain), RAG Architecture, Computer Vision, Time Series, Anomaly Detection",
-    "skills_cat_dl": "Deep Learning",
-    "skills_dl_details": "Keras, PyTorch, TensorFlow, CNNs, Transformers",
-    "skills_cat_prog": "Programming",
-    "skills_prog_lang_details": "Python (Expert), SQL, C++, Embedded C",
-    "skills_cat_other": "Embedded Systems",
-    "skills_other_details": "AUTOSAR, CAN, FlexRay, Ethernet, Microcontrollers (Tricore, RH850)",
-    "skills_cat_tools": "Tools, Platforms & Libraries",
-    "skills_tools_details": "Github, Docker, AWS, Scikit-learn, Pandas, Davinci Configurator",
+    "skills_cat_ml": "Data Science & Machine Learning",
+    "skills_ml_details": "LLMs (LangChain), RAG Architecture, Computer Vision, Time Series, Anomaly Detection, Classification, Regression, Clustering, PCA, Feature Engineering",
+    "skills_cat_dl": "Deep Learning & Neural Networks",
+    "skills_dl_details": "Keras, PyTorch, TensorFlow, CNNs, DNNs, Transformers, Reinforcement Learning, Computer Vision",
+    "skills_cat_prog": "Programming Languages",
+    "skills_prog_lang_details": "Python, SQL, C++, Embedded C",
+    "skills_cat_other": "Embedded Systems & Other",
+    "skills_other_details": "AUTOSAR, CAN, CANFD, LIN, FlexRay, Ethernet, Microcontrollers (Tricore, RH850)",
     "skills_cat_soft": "Soft Skills",
     "skills_soft_details": "Strategic Stakeholder Communication, Technical Mentorship, Agile Leadership",
+    "skills_cat_tools": "Tools, Platforms & Libraries",
+    "skills_tools_details": "Github, Docker, AWS (basics), Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn, Plotly, Linux Command Line, Streamlit, Davinci Configurator",
+    "skills_cat_additional": "Others",
+    "skills_additional_details": "Data APIs, Web Scraping (BeautifulSoup), Graph Theory, Network Analysis",
     
     "projects_title": "Projects",
     "project_1_title": "CAN Bus Anomaly Detection (AI Safety)",
@@ -80,28 +82,29 @@ const translations = {
     "summary_text_short": "ML-Ingenieurin mit 11 Jahren Automotive-Expertise und Sorbonne KI-Weiterbildung.",
     
     "skills_title": "Fähigkeiten",
-    "skills_cat_ml": "Data Science & ML",
-    "skills_ml_details": "LLMs, RAG-Architektur, Computer Vision, Zeitreihen, Anomalieerkennung",
-    "skills_cat_dl": "Deep Learning",
-    "skills_dl_details": "Keras, PyTorch, TensorFlow, CNNs, Transformers",
-    "skills_cat_prog": "Programmierung",
-    "skills_prog_lang_details": "Python (Experte), SQL, C++, Embedded C",
-    "skills_cat_other": "Embedded Systems",
-    "skills_other_details": "AUTOSAR, CAN, FlexRay, Ethernet, Mikrocontroller",
+    "skills_cat_ml": "Data Science & Machine Learning",
+    "skills_ml_details": "LLMs (LangChain), RAG-Architektur, Computer Vision, Zeitreihenanalyse, Anomalieerkennung, Klassifikation, Regression, Clustering, PCA, Feature Engineering",
+    "skills_cat_dl": "Deep Learning & Neuronale Netze",
+    "skills_dl_details": "Keras, PyTorch, TensorFlow, CNNs, DNNs, Transformer, Reinforcement Learning, Computer Vision",
+    "skills_cat_prog": "Programmiersprachen",
+    "skills_prog_lang_details": "Python, SQL, C++, Embedded C",
+    "skills_cat_other": "Embedded Systems & Sonstiges",
+    "skills_other_details": "AUTOSAR, CAN, CANFD, LIN, FlexRay, Ethernet, Mikrocontroller (Tricore, RH850)",
     "skills_cat_soft": "Soft Skills",
-    "skills_soft_details": "Stakeholder-Kommunikation, Mentoring, Agile Führung",
-    "skills_cat_tools": "Tools, Platforms & Libraries",
-    "skills_tools_details": "Github, Docker, AWS, Scikit-learn, Davinci Configurator",
+    "skills_soft_details": "Strategische Stakeholder-Kommunikation, Technisches Mentoring, Agile Führung",
+    "skills_cat_tools": "Tools, Plattformen & Bibliotheken",
+    "skills_tools_details": "Github, Docker, AWS (Grundkenntnisse), Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn, Plotly, Linux-Kommandozeile, Streamlit, Virtuelle Maschinen, Davinci Configurator",
+    "skills_cat_additional": "Weitere Technologien",
+    "skills_additional_details": "Data APIs, Web Scraping (BeautifulSoup), Graphentheorie, Netzwerkanalyse",
     
     "projects_title": "Projekte",
-    "project_1_title": "CAN-Bus Anomalieerkennung (KI-Sicherheit)",
-    "project_1_desc": "KI-Sicherheitssystem zur Erkennung von Cyberangriffen mit 97,6 % Genauigkeit.",
-    "project_1_li_1": "Einsatz von LSTM-Autoencodern zur automatischen Überwachung von Fahrzeugdaten.",
-    "project_1_li_2": "Analyse der Nachrichtenfrequenz zur Abwehr von Cyberangriffen.",
-    "project_1_li_3": "98,8 % Präzision bei der Identifizierung von DoS-Angriffen.",
-    "project_1_li_4": "Verbindung von Automotive-Hardware mit modernen KI-Protokollen.",
+    "project_1_title": "CAN-Bus Anomalieerkennung",
+    "project_1_li_1": "Verwendete Methoden: Ensemble von unüberwachten Lernmodellen (Isolation Forest, LOF), erweitert durch heuristische Prioritätslogik ('New ID Priority'-Regel) zur genauen Unterscheidung von Angriffsarten.",
+    "project_1_li_2": "Verwendete Features: Frequenzanalyse und Inter-Arrival-Time (log_iat) für DoS; Payload-Analyse (Volatilität, Hamming-Distanz) für Fuzzy-Angriffe.",
+    "project_1_li_3": "Ergebnis: Robustes System mit ~97,6% Recall bei Fuzzy-Angriffen, ~98,8% Präzision bei DoS-Angriffen und ~99,9% bei normalen Frames.",
+    "project_1_li_4": "Erfolgreiche Erkennung verschiedener Angriffsarten durch Analyse von CAN-ID-Frequenz und Payload-Merkmalen.",
     
-    "experience_title": "Berufserfahrung",
+    "experience_title": "BERUFSERFAHRUNG (LETZTE 11 JAHRE: AUTOMOTIVE EMBEDDED SYSTEMS)",
     "exp_1_title": "Project Lead | Montbleu Technologies GmbH, Deutschland",
     "exp_1_date": "Aug 2021 – Feb 2025",
     "exp_1_li_1": "Leitung der AUTOSAR MCAL-Anpassung für Next-Gen-Hardware.",
@@ -158,6 +161,9 @@ document.addEventListener('DOMContentLoaded', () => {
   setLanguage(currentLang);
 
   document.getElementById('download-btn').addEventListener('click', () => {
+      const originalTitle = document.title;
+      document.title = ""; // Clear title so it doesn't print in the header
       window.print();
+      document.title = originalTitle; // Restore title
   });
 });

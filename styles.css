@@ -105,7 +105,8 @@ h1, h2 {
     
     body {
         background: white;
-        font-size: 9pt; /* Increased font size for print output as requested */
+        font-size: 9pt; /* Set body font size back to 9pt as requested */
+        line-height: 1.8; /* Set line height to 1.8 as requested */
     }
 
     #cv-container {
@@ -133,20 +134,28 @@ h1, h2 {
     
     h1 {
         font-size: 14pt !important; /* Reduced name font size as requested */
-        margin-bottom: 5px !important;
+        margin-bottom: 5px !important; /* Reduced space below name */
+    }
+
+    .lead {
+        font-size: 10pt !important; /* Reduced for single line in print */
+        line-height: 1.2 !important; /* Tightened line height */
+        white-space: nowrap; /* Attempt to keep on single line */
+        overflow: hidden; /* Hide overflowing text */
+        text-overflow: ellipsis; /* Indicate hidden text */
     }
 
     h2, .section-title {
         font-size: 12pt !important; /* Distinct section headers */
         text-transform: uppercase;
-        margin-top: 15px !important;
+        margin-top: 18px !important; /* Balanced spacing */
         margin-bottom: 8px !important;
         border-bottom: 1px solid #2980b9; /* cleaner line for print */
     }
 
     h5 {
         font-size: 10.5pt !important; /* Job titles slightly larger than body */
-        margin-bottom: 2px !important;
+        margin-bottom: 4px !important;
     }
 
     h3, h4 {
@@ -154,11 +163,15 @@ h1, h2 {
     }
     
     p, ul, .mb-5, .mb-4, .mb-3, .mb-2 {
-        margin-bottom: 5px !important; /* Tighten vertical spacing */
+        margin-bottom: 8px !important; /* Slightly increased vertical spacing */
+    }
+
+    .contact-bar, .social-links {
+        margin-bottom: 2px !important; /* Reduced space within header */
     }
 
     .card-body {
-        padding: 2px 0 !important;
+        padding: 6px 0 !important; /* Slightly increased padding */
     }
     
     .profile-photo {
@@ -167,7 +180,7 @@ h1, h2 {
     }
 
     header {
-        margin-bottom: 10px !important;
+        margin-bottom: 15px !important; /* Reduced header spacing */
     }
 
     /* Margins for the page itself are handled by the browser print dialog, 
@@ -183,8 +196,15 @@ h1, h2 {
         page-break-after: avoid;
     }
     
-    /* Ensure skills don't split weirdly */
-    #skills .col-12 {
-        page-break-inside: avoid;
+    .lead {
+        font-size: 10pt !important; /* Reduced for single line in print */
+        line-height: 1.2 !important; /* Tightened line height */
+        white-space: nowrap; /* Attempt to keep on single line */
+        overflow: hidden; /* Hide overflowing text */
+        text-overflow: ellipsis; /* Indicate hidden text */
+    }
+
+    #projects .section-title {
+        page-break-before: always; /* Ensure Projects starts on a new page */
     }
 }
