@@ -200,7 +200,7 @@ h1, h2 {
     }
 
     @page {
-        margin: 12mm 20mm;
+        margin: 25mm 20mm 15mm 20mm; /* Top 25mm for header space, others standard */
         size: auto; 
     }
 }
