@@ -124,7 +124,7 @@ h1, h2 {
     }
     
     /* Clean page breaks */
-    .card {
+    .card, ul, li {
         page-break-inside: avoid;
     }
     
