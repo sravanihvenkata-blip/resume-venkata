@@ -139,6 +139,13 @@ h1, h2 {
         display: block;
     }
 
+    /* Force Professional Experience to start on a new page with extra top space */
+    #experience .section-title {
+        page-break-before: always !important;
+        break-before: page !important;
+        margin-top: 60px !important; /* Simulates empty page header space */
+    }
+
     /* Alternative Fix: If the title is inside a container, 
        force the container to break */
     #projects-list {
