@@ -2,9 +2,9 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
-    line-height: 1.5; /* Tightened for space efficiency */
+    line-height: 1.5;
     background-color: #f8f9fa;
-    font-size: 0.95em; /* Slightly reduced base font size */
+    font-size: 0.95em;
 }
 
 h1, h2 {
@@ -12,7 +12,7 @@ h1, h2 {
 }
 
 .profile-photo {
-    width: 140px; /* Slightly smaller to save vertical space */
+    width: 140px;
     height: 140px;
     border-radius: 50%;
     object-fit: cover;
@@ -29,7 +29,7 @@ h1, h2 {
     border-bottom: 2px solid #2980b9;
     padding-bottom: 3px;
     margin-bottom: 12px;
-    margin-top: 15px; /* Consistent spacing to control page breaks */
+    margin-top: 15px;
 }
 
 .contact-bar {
@@ -44,26 +44,25 @@ h1, h2 {
 }
 
 .card-body {
-    padding: 0.5rem 0; /* Reduced padding to fit more content */
+    padding: 0.5rem 0;
 }
 
 /* PDF Generation Specific Styles */
-/* These rules ensure the shape fills exactly 2 pages */
 .pdf-generation-mode {
     width: 800px !important; 
     margin: 0 auto !important;
     background: white !important;
-    font-size: 10pt; /* Reduced font size for PDF output */
+    font-size: 10pt;
 }
 
 .pdf-generation-mode #cv-container {
     width: 800px !important;
     max-width: 800px !important;
-    padding: 40px !important; /* Standard margins for A4 */
+    padding: 40px !important;
 }
 
 .pdf-generation-mode .section-title {
-    margin-top: 35px; /* Increased to push content and fill 2 pages better */
+    margin-top: 35px;
     margin-bottom: 15px;
 }
 
@@ -71,7 +70,6 @@ h1, h2 {
     display: none !important;
 }
 
-/* Prevent items from breaking across pages in the middle of a sentence */
 .pdf-generation-mode .card, 
 .pdf-generation-mode section {
     page-break-inside: avoid;
@@ -82,31 +80,28 @@ h1, h2 {
     page-break-after: avoid;
 }
 
-/* Ensure the summary fills space effectively */
 .pdf-generation-mode #summary p {
-    margin-bottom: 25px; /* Increased breathing room */
+    margin-bottom: 25px;
     text-align: justify;
-    line-height: 1.6; /* Improved readability for PDF */
+    line-height: 1.6;
 }
 
 .pdf-generation-mode .card-body {
-    padding: 0.8rem 0; /* Restore some padding for PDF look */
+    padding: 0.8rem 0;
 }
 
+/* =========================================
+   PRINT SETTINGS (The Fix is Here)
+   ========================================= */
 @media print {
-    .no-print {
-        display: none !important;
-    }
+    .no-print { display: none !important; }
     
     html, body {
         height: auto;
         overflow: visible;
-    }
-    
-    body {
         background: white;
-        font-size: 9pt; /* Set body font size back to 9pt as requested */
-        line-height: 1.8; /* Set line height to 1.8 as requested */
+        font-size: 9pt;
+        line-height: 1.8;
     }
 
     #cv-container {
@@ -117,42 +112,58 @@ h1, h2 {
         overflow: visible;
     }
 
-    /* Ensure background colors/borders print */
     * {
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
     }
     
-    /* Allow content to split freely across pages */
+    /* General Rule: Try not to split things */
     section, .card, .card-body, ul, li, div {
-        page-break-inside: auto !important;
-        break-inside: auto !important;
+        page-break-inside: auto;
+        break-inside: auto;
     }
 
-    /* Only keep headers from being stranded at bottom of page */
     h1, h2, h5, .section-title {
         page-break-after: avoid;
         break-after: avoid;
     }
 
+    /* -----------------------------------------------------------
+       THE FIX: Force 'Projects' to start on the next page
+       This targets the element with ID 'projects-title'
+       ----------------------------------------------------------- */
+    #projects-title, 
+    h2[data-key="projects_title"] {
+        page-break-before: always !important;
+        break-before: page !important;
+        margin-top: 20px !important; /* Add space at top of new page */
+        display: block;
+    }
+
+    /* Alternative Fix: If the title is inside a container, 
+       force the container to break */
+    #projects-list {
+        page-break-before: avoid; /* Keep list close to title if possible */
+    }
+
     .lead {
-        font-size: 10pt !important; /* Reduced for single line in print */
-        line-height: 1.2 !important; /* Tightened line height */
-        white-space: nowrap; /* Attempt to keep on single line */
-        overflow: hidden; /* Hide overflowing text */
-        text-overflow: ellipsis; /* Indicate hidden text */
+        font-size: 10pt !important;
+        line-height: 1.2 !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     h2, .section-title {
-        font-size: 12pt !important; /* Distinct section headers */
+        font-size: 12pt !important;
         text-transform: uppercase;
-        margin-top: 18px !important; /* Balanced spacing */
+        margin-top: 18px !important;
         margin-bottom: 8px !important;
-        border-bottom: 1px solid #2980b9; /* cleaner line for print */
+        border-bottom: 1px solid #2980b9;
     }
 
     h5 {
-        font-size: 10.5pt !important; /* Job titles slightly larger than body */
+        font-size: 10.5pt !important;
         margin-bottom: 4px !important;
     }
 
@@ -161,41 +172,29 @@ h1, h2 {
     }
     
     p, ul, .mb-5, .mb-4, .mb-3, .mb-2 {
-        margin-bottom: 8px !important; /* Slightly increased vertical spacing */
+        margin-bottom: 8px !important;
     }
 
     .contact-bar, .social-links {
-        margin-bottom: 2px !important; /* Reduced space within header */
+        margin-bottom: 2px !important;
     }
 
     .card-body {
-        padding: 6px 0 !important; /* Slightly increased padding */
+        padding: 6px 0 !important;
     }
     
     .profile-photo {
-        width: 100px; /* Smaller photo for print */
+        width: 100px;
         height: 100px;
+        page-break-inside: avoid;
     }
 
     header {
-        margin-bottom: 15px !important; /* Reduced header spacing */
+        margin-bottom: 15px !important;
     }
 
-    /* Margins for the page itself are handled by the browser print dialog, 
-       but we can suggest standard ones */
     @page {
-        margin: 12mm 20mm; /* Top/Bottom 12mm, Left/Right 20mm for more side space */
+        margin: 12mm 20mm;
         size: auto; 
-    }
-
-    /* Prevent awkward breaks */
-    h1, h2, h5, .profile-photo {
-        page-break-inside: avoid;
-        page-break-after: avoid;
-    }
-
-    /* Ensure skills don't split weirdly */
-    #skills .col-12 {
-        page-break-inside: avoid;
     }
 }
