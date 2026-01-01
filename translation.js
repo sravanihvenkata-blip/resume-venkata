@@ -160,6 +160,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentLang = localStorage.getItem('language') || 'en';
   setLanguage(currentLang);
 
+  // Explicitly initialize Bootstrap dropdowns for file:// access
+  const dropdownElement = document.getElementById('language-switcher');
+  if (dropdownElement) {
+    new bootstrap.Dropdown(dropdownElement);
+  }
+
   document.getElementById('download-btn').addEventListener('click', () => {
       const originalTitle = document.title;
       document.title = ""; // Clear title so it doesn't print in the header
