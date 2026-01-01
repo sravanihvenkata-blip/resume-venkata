@@ -1,15 +1,15 @@
 const translations = {
   en: {
-    "title": "Sravani H. Venkata - Machine Learning Engineer",
+    "title": "Sravani Hukumathi Venkata - Data Scientist",
     "name": "Sravani Hukumathi Venkata",
-    "tagline": "Data Scientist | 11 Years Automotive Expertise | Sorbonne AI Specialization",
+    "tagline": "Data Scientist | 11 Years Automotive Expertise | Sorbonne Data Science Certified",
     "email": "Email",
     "phone": "Phone",
     "location": "Location",
     "github": "Project Link",
     
     "summary_title": "Summary",
-    "summary_text": "High-impact Machine Learning Engineer with 11 years of automotive expertise and advanced Data Science training from Université Paris Panthéon-Sorbonne. Proven track record in developing AI-driven automation and real-time anomaly detection systems. Seeking a Data Scientist role to integrate Generative AI with Embedded Systems.",
+    "summary_text": "Aspiring Data Scientist leveraging 11 years of technical expertise in software development and a recent comprehensive certification in Data Science. Proficient in Python, predictive modeling, and real-time anomaly detection. My background in Automotive Industry with high-performance engineering has conditioned me to write efficient code and handle complex datasets with precision. I am looking to leverage my mix of professional maturity and new analytical skills to drive data-led decision-making in a dynamic environment.",
     "summary_text_short": "ML Engineer with 11 years of automotive expertise and Sorbonne AI training. Expert in real-time anomaly detection and AI automation.",
     
     "skills_title": "Skills",
@@ -19,7 +19,7 @@ const translations = {
     "skills_dl_details": "Keras, PyTorch, TensorFlow, CNNs, DNNs, Transformers, Reinforcement Learning, Computer Vision",
     "skills_cat_prog": "Programming Languages",
     "skills_prog_lang_details": "Python, SQL, C++, Embedded C",
-    "skills_cat_other": "Embedded Systems & Other",
+    "skills_cat_other": "Embedded Systems",
     "skills_other_details": "AUTOSAR, CAN, CANFD, LIN, FlexRay, Ethernet, Microcontrollers (Tricore, RH850)",
     "skills_cat_soft": "Soft Skills",
     "skills_soft_details": "Strategic Stakeholder Communication, Technical Mentorship, Agile Leadership",
@@ -31,9 +31,9 @@ const translations = {
     "projects_title": "Projects",
     "project_1_title": "CAN Bus Anomaly Detection (AI Safety)",
     "project_1_desc": "Built an automated security system identifying vehicle cyber-attacks with 97.6% accuracy.",
-    "project_1_li_1": "Methods Used: The notebook employs an ensemble of unsupervised learning models, primarily Isolation Forest (for DoS detection) and Local Outlier Factor (LOF) (for Fuzzy anomaly detection), enhanced by a Heuristic Priority Logic, most notably the 'New ID Priority' rule, to accurately distinguish attack types.",
-    "project_1_li_2": "Features Used: Key features for DoS detection include frequency_hz and log_iat, while Fuzzy detection relies on payload analysis through rolling_volatility, hamming_dist, and the critical is_new_id flag. General message attributes like can_id_dec and dic are also incorporated.",
-    "project_1_li_3": "Outcome: The result is a robust anomaly detection system achieving high performance across all classes, specifically Fuzzy attack recall of ~97.6%, DoS attack precision of ~98.8%, and normal frame recall of ~99.9%.",
+    "project_1_li_1": "<b>Methods Used:</b> The notebook employs an ensemble of unsupervised learning models, primarily Isolation Forest (for DoS detection) and Local Outlier Factor (LOF) (for Fuzzy anomaly detection), enhanced by a Heuristic Priority Logic, most notably the 'New ID Priority' rule, to accurately distinguish attack types.",
+    "project_1_li_2": "<b>Features Used:</b> Key features for DoS detection include frequency_hz and log_iat, while Fuzzy detection relies on payload analysis through rolling_volatility, hamming_dist, and the critical is_new_id flag. General message attributes like can_id_dec and dic are also incorporated.",
+    "project_1_li_3": "<b>Outcome:</b> The result is a robust anomaly detection system achieving high performance across all classes, specifically Fuzzy attack recall of ~97.6%, DoS attack precision of ~98.8%, and normal frame recall of ~99.9%.",
     "project_1_li_4": "Demonstrated the ability to detect various attack types, including DoS and Fuzzy attacks, by analyzing CAN ID frequency, inter-arrival times, and payload characteristics.",
     
     "experience_title": "PROFESSIONAL EXPERIENCE (LAST 11 YEARS: AUTOMOTIVE EMBEDDED SYSTEMS)",
@@ -69,16 +69,16 @@ const translations = {
     "download_button": "Download Full CV (PDF)"
   },
   de: {
-    "title": "Sravani H. Venkata - Machine Learning Engineer",
+    "title": "Sravani Hukumathi Venkata - Data Scientist",
     "name": "Sravani Hukumathi Venkata",
-    "tagline": "Data Scientist | 11 Jahre Automotive-Expertise | Sorbonne KI-Spezialisierung",
+    "tagline": "Data Scientist | 11 Jahre Automotive-Expertise | Sorbonne Data Science Zertifiziert",
     "email": "E-Mail",
     "phone": "Telefon",
     "location": "Standort",
     "github": "Projekt-Link",
     
     "summary_title": "Zusammenfassung",
-    "summary_text": "Leistungsstarke ML-Ingenieurin mit 11 Jahren Automotive-Expertise und Ausbildung an der Sorbonne. Spezialisiert auf KI-Automatisierung und Echtzeit-Anomalieerkennung.",
+    "summary_text": "Angehender Data Scientist mit 11 Jahren technischer Expertise in der Softwareentwicklung und einer kürzlich erworbenen umfassenden Zertifizierung in Data Science. Versiert in Python, prädiktiver Modellierung und Echtzeit-Anomalieerkennung. Mein Hintergrund in der Automobilindustrie mit Hochleistungsentwicklung hat mich darauf konditioniert, effizienten Code zu schreiben und komplexe Datensätze präzise zu verarbeiten. Ich möchte meine Mischung aus beruflicher Reife und neuen analytischen Fähigkeiten nutzen, um datengesteuerte Entscheidungen in einem dynamischen Umfeld voranzutreiben.",
     "summary_text_short": "ML-Ingenieurin mit 11 Jahren Automotive-Expertise und Sorbonne KI-Weiterbildung.",
     
     "skills_title": "Fähigkeiten",
@@ -88,7 +88,7 @@ const translations = {
     "skills_dl_details": "Keras, PyTorch, TensorFlow, CNNs, DNNs, Transformer, Reinforcement Learning, Computer Vision",
     "skills_cat_prog": "Programmiersprachen",
     "skills_prog_lang_details": "Python, SQL, C++, Embedded C",
-    "skills_cat_other": "Embedded Systems & Sonstiges",
+    "skills_cat_other": "Embedded Systems",
     "skills_other_details": "AUTOSAR, CAN, CANFD, LIN, FlexRay, Ethernet, Mikrocontroller (Tricore, RH850)",
     "skills_cat_soft": "Soft Skills",
     "skills_soft_details": "Strategische Stakeholder-Kommunikation, Technisches Mentoring, Agile Führung",
@@ -99,9 +99,9 @@ const translations = {
     
     "projects_title": "Projekte",
     "project_1_title": "CAN-Bus Anomalieerkennung",
-    "project_1_li_1": "Verwendete Methoden: Ensemble von unüberwachten Lernmodellen (Isolation Forest, LOF), erweitert durch heuristische Prioritätslogik ('New ID Priority'-Regel) zur genauen Unterscheidung von Angriffsarten.",
-    "project_1_li_2": "Verwendete Features: Frequenzanalyse und Inter-Arrival-Time (log_iat) für DoS; Payload-Analyse (Volatilität, Hamming-Distanz) für Fuzzy-Angriffe.",
-    "project_1_li_3": "Ergebnis: Robustes System mit ~97,6% Recall bei Fuzzy-Angriffen, ~98,8% Präzision bei DoS-Angriffen und ~99,9% bei normalen Frames.",
+    "project_1_li_1": "<b>Verwendete Methoden:</b> Ensemble von unüberwachten Lernmodellen (Isolation Forest, LOF), erweitert durch heuristische Prioritätslogik ('New ID Priority'-Regel) zur genauen Unterscheidung von Angriffsarten.",
+    "project_1_li_2": "<b>Verwendete Features:</b> Frequenzanalyse und Inter-Arrival-Time (log_iat) für DoS; Payload-Analyse (Volatilität, Hamming-Distanz) für Fuzzy-Angriffe.",
+    "project_1_li_3": "<b>Ergebnis:</b> Robustes System mit ~97,6% Recall bei Fuzzy-Angriffen, ~98,8% Präzision bei DoS-Angriffen und ~99,9% bei normalen Frames.",
     "project_1_li_4": "Erfolgreiche Erkennung verschiedener Angriffsarten durch Analyse von CAN-ID-Frequenz und Payload-Merkmalen.",
     
     "experience_title": "BERUFSERFAHRUNG (LETZTE 11 JAHRE: AUTOMOTIVE EMBEDDED SYSTEMS)",
