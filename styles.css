@@ -117,26 +117,25 @@ h1, h2 {
         print-color-adjust: exact !important;
     }
     
-    /* General Rule: Try not to split things */
+    /* Allow content to split freely across pages */
     section, .card, .card-body, ul, li, div {
-        page-break-inside: auto;
-        break-inside: auto;
+        display: block !important; /* Kill flexbox for print to allow splitting */
+        page-break-inside: auto !important;
+        break-inside: auto !important;
     }
 
+    /* Keep headers with their immediate following content if possible, but allow break after */
     h1, h2, h5, .section-title {
         page-break-after: avoid;
         break-after: avoid;
     }
-
-    /* -----------------------------------------------------------
-       THE FIX: Force 'Projects' to start on the next page
-       This targets the element with ID 'projects-title'
-       ----------------------------------------------------------- */
+    
+    /* Ensure Projects title doesn't force a new page */
     #projects-title, 
     h2[data-key="projects_title"] {
-        page-break-before: always !important;
-        break-before: page !important;
-        margin-top: 20px !important; /* Add space at top of new page */
+        page-break-before: auto !important;
+        break-before: auto !important;
+        margin-top: 18px !important;
         display: block;
     }
 
