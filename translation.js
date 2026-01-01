@@ -6,7 +6,7 @@ const translations = {
     "email": "Email",
     "phone": "Phone",
     "location": "Location",
-    "github": "Project Link",
+    "github": "Anomaly_detection",
     
     "summary_title": "Summary",
     "summary_text": "Aspiring Data Scientist leveraging 11 years of technical expertise in software development and a recent comprehensive certification in Data Science. Proficient in Python, predictive modeling, and real-time anomaly detection. My background in Automotive Industry with high-performance engineering has conditioned me to write efficient code and handle complex datasets with precision. I am looking to leverage my mix of professional maturity and new analytical skills to drive data-led decision-making in a dynamic environment.",
@@ -75,7 +75,7 @@ const translations = {
     "email": "E-Mail",
     "phone": "Telefon",
     "location": "Standort",
-    "github": "Projekt-Link",
+    "github": "Anomaly_detection",
     
     "summary_title": "Zusammenfassung",
     "summary_text": "Angehender Data Scientist mit 11 Jahren technischer Expertise in der Softwareentwicklung und einer kürzlich erworbenen umfassenden Zertifizierung in Data Science. Versiert in Python, prädiktiver Modellierung und Echtzeit-Anomalieerkennung. Mein Hintergrund in der Automobilindustrie mit Hochleistungsentwicklung hat mich darauf konditioniert, effizienten Code zu schreiben und komplexe Datensätze präzise zu verarbeiten. Ich möchte meine Mischung aus beruflicher Reife und neuen analytischen Fähigkeiten nutzen, um datengesteuerte Entscheidungen in einem dynamischen Umfeld voranzutreiben.",
