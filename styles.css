@@ -193,14 +193,6 @@ h1, h2 {
         page-break-inside: avoid;
         page-break-after: avoid;
     }
-    
-    .lead {
-        font-size: 10pt !important; /* Reduced for single line in print */
-        line-height: 1.2 !important; /* Tightened line height */
-        white-space: nowrap; /* Attempt to keep on single line */
-        overflow: hidden; /* Hide overflowing text */
-        text-overflow: ellipsis; /* Indicate hidden text */
-    }
 
     /* Ensure skills don't split weirdly */
     #skills .col-12 {
