@@ -40,7 +40,7 @@ const translations = {
     "exp_1_title": "Project Lead | Montbleu Technologies GmbH, Germany",
     "exp_1_date": "Aug 2021 – Feb 2025",
     "exp_1_li_1": "Directed full-cycle AUTOSAR MCAL adaptation for next-gen hardware, ensuring 100% OEM alignment.",
-    "exp_1_li_2": "Engineered high-performance multicore solutions, optimizing data throughput by 20%.",
+    "exp_1_li_2": "Engineered high-performance multicore solutions, optimizing data throughput.",
     "exp_1_li_3": "Spearheaded integration of safety-critical watchdogs, significantly enhancing system reliability.",
     "exp_1_li_4": "Acted as technical bridge between customer requirements and execution for Tier-1 partners.",
     
@@ -48,9 +48,9 @@ const translations = {
     "exp_2_date": "Sep 2019 – July 2021",
     "exp_2_li_1": "Orchestrated BMS development for Mercedes-Benz, steering architecture for energy efficiency.",
     "exp_2_li_2": "Delivered AUTOSAR-compliant stacks, reducing system integration time and ensuring safety.",
-    "exp_2_li_3": "Mentored 5 junior engineers, resulting in a 30% increase in team coding efficiency.",
+    "exp_2_li_3": "Mentored 5 junior engineers, resulting increase in team coding efficiency.",
     
-    "exp_3_title": "Senior Software Engineer | KPIT Technologies, Munich",
+    "exp_3_title": "Senior Software Engineer | KPIT Technologies GmbH, Munich | KPIT Technologies Pvt Ltd, India",
     "exp_3_date": "Oct 2013 – June 2019",
     "exp_3_li_1": "Developed safety-critical software for BMW and Continental for millions of production vehicles.",
     "exp_3_li_2": "Mastered CAN/FlexRay protocols, establishing the foundation for advanced data analysis.",
@@ -108,7 +108,7 @@ const translations = {
     "exp_1_title": "Project Lead | Montbleu Technologies GmbH, Deutschland",
     "exp_1_date": "Aug 2021 – Feb 2025",
     "exp_1_li_1": "Leitung der AUTOSAR MCAL-Anpassung für Next-Gen-Hardware.",
-    "exp_1_li_2": "Entwicklung von Multicore-Lösungen, Optimierung des Datendurchsatzes um 20%.",
+    "exp_1_li_2": "Entwicklung von Multicore-Lösungen, Optimierung des Datendurchsatzes.",
     "exp_1_li_3": "Integration sicherheitskritischer Funktionen zur Erhöhung der Zuverlässigkeit.",
     "exp_1_li_4": "Technische Schnittstelle für Tier-1-Automobilpartner.",
     
@@ -116,7 +116,7 @@ const translations = {
     "exp_2_date": "Sep 2019 – Juli 2021",
     "exp_2_li_1": "BMS-Entwicklung für Mercedes-Benz, Architektursteuerung für Energieeffizienz.",
     "exp_2_li_2": "Bereitstellung AUTOSAR-konformer Stacks zur Reduzierung der Integrationszeit.",
-    "exp_2_li_3": "Mentoring von 5 Ingenieuren, Steigerung der Effizienz um 30%.",
+    "exp_2_li_3": "Mentoring von 5 Ingenieuren, Steigerung der Effizienz.",
     
     "exp_3_title": "Senior Software Engineer | KPIT Technologies, München",
     "exp_3_date": "Okt 2013 – Juni 2019",
