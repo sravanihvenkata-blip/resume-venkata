@@ -58,8 +58,7 @@ const translations = {
     
     "exp_3_title": "Senior Software Engineer | KPIT Technologies | Munich & India",
     "exp_3_date": "Oct 2013 – June 2019",
-    "exp_3_client": "Clients: Continental, ZF-TRW",
-    "exp_3_oem": "OEMs: BMW, Porsche",
+    "exp_3_oem": "OEMs: BMW, HMK, Porsche",
     "exp_3_li_1": "Scalable Data Infrastructure: Engineered high-reliability communication frameworks (CAN, FlexRay, LIN), providing the foundational data layer for modern vehicle diagnostics and predictive maintenance.",
     "exp_3_li_2": "Global Scale Development: Developed safety-critical software modules currently operating in production vehicles for industry leaders like BMW and Porsche.",
     "exp_3_li_3": "Cross-Functional Integration: Architected software designs that streamlined data flows between hardware and software, reducing system development cycles through optimized hardware-software interfaces.",
@@ -139,7 +138,7 @@ const translations = {
     "exp_3_title": "Senior Software Engineer | KPIT Technologies | München & Indien",
     "exp_3_date": "Okt 2013 – Juni 2019",
     "exp_3_client": "Kunden: Continental, ZF-TRW",
-    "exp_3_oem": "OEMs: BMW, Porsche",
+    "exp_3_oem": "OEMs: BMW, HMK, Porsche",
     "exp_3_li_1": "Skalierbare Dateninfrastruktur: Entwicklung hochzuverlässiger Kommunikationsframeworks (CAN, FlexRay, LIN), die die grundlegende Datenschicht für moderne Fahrzeugdiagnostik und vorausschauende Wartung bilden.",
     "exp_3_li_2": "Globale Skalierung der Entwicklung: Entwicklung sicherheitskritischer Softwaremodule, die derzeit in Serienfahrzeugen für Branchenführer wie BMW und Porsche betrieben werden.",
     "exp_3_li_3": "Cross-funktionale Integration: Architektur von Softwaredesigns, die Datenflüsse zwischen Hardware und Software optimierten und die Systementwicklungszyklen durch optimierte Hardware-Software-Schnittstellen verkürzten.",

@@ -191,7 +191,7 @@ h1, h2 {
     h2, .section-title {
         font-size: 12pt !important;
         text-transform: uppercase;
-        margin-top: 18px !important; /* Restore normal spacing */
+        margin-top: 15px !important; /* Reduced section top margin */
         margin-bottom: 8px !important; /* Restore normal spacing */
         border-bottom: 1px solid #2980b9;
     }
@@ -211,7 +211,7 @@ h1, h2 {
     }
     
     p, .mb-5, .mb-4, .mb-3, .mb-2 {
-        margin-bottom: 8px !important; /* Restore normal paragraph spacing */
+        margin-bottom: 6px !important; /* Reduced paragraph spacing to fit 2 pages */
     }
 
     .contact-bar, .social-links {
@@ -229,7 +229,7 @@ h1, h2 {
     }
 
     header {
-        margin-bottom: 20px !important; /* Restore normal header spacing */
+        margin-bottom: 15px !important; /* Reduced header spacing */
         padding-bottom: 10px !important;
     }
 
@@ -239,6 +239,6 @@ h1, h2 {
         size: auto;
     }
     @page :first {
-        margin-top: 12mm; /* For page 1 only */
+        margin-top: 10mm; /* Slightly tighter top margin for page 1 */
     }
 }
