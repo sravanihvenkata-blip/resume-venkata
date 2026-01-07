@@ -105,11 +105,13 @@ h1, h2 {
         padding: 10mm 15mm !important; /* Body padding acts as page margin */
     }
 
-    /* Reset page margins to 0 to remove browser defaults */
     @page {
         margin: 0;
         size: auto;
     }
+
+    /* Minimal top margin for page 2+ achieved via padding */
+    /* Previous specific top margin rules removed to let body padding handle it consistently */
 
     #cv-container {
         width: 100% !important;
