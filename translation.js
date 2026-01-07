@@ -27,10 +27,8 @@ const translations = {
     "skills_pm_details": "Agile, Scrum, Kanban, Scaled Agile Framework.",
     "skills_cat_sdlc": "SDLC Process",
     "skills_sdlc_details": "V model",
-    "skills_cat_alm": "Version control and ALM tools",
-    "skills_alm_details": "SVN, PTC, MKS, JIRA, GitHub, ALMPlus",
     "skills_cat_tools": "Tools, Platforms & Libraries",
-    "skills_tools_details": "Docker, AWS (basics), Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn, Plotly, Linux Command Line, Streamlit",
+    "skills_tools_details": "Docker, AWS (basics), Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn, Plotly, Linux Command Line, Streamlit, SVN, PTC, MKS, JIRA, GitHub, ALMPlus",
     
     "projects_title": "Projects",
     "project_1_title": "AI-Powered Vehicle Security (CAN Bus Protection)",
@@ -109,10 +107,8 @@ const translations = {
     "skills_pm_details": "Agile, Scrum, Kanban, Scaled Agile Framework.",
     "skills_cat_sdlc": "SDLC-Prozess",
     "skills_sdlc_details": "V-Modell",
-    "skills_cat_alm": "Versionskontrolle und ALM-Tools",
-    "skills_alm_details": "SVN, PTC, MKS, JIRA, GitHub, ALMPlus",
     "skills_cat_tools": "Tools, Plattformen & Bibliotheken",
-    "skills_tools_details": "Docker, AWS (Grundkenntnisse), Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn, Plotly, Linux-Kommandozeile, Streamlit, Virtuelle Maschinen",
+    "skills_tools_details": "Docker, AWS (Grundkenntnisse), Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn, Plotly, Linux-Kommandozeile, Streamlit, Virtuelle Maschinen, SVN, PTC, MKS, JIRA, GitHub, ALMPlus",
     
     "projects_title": "Projekte",
     "project_1_title": "KI-gestützte Fahrzeugsicherheit (CAN Bus Schutz)",
