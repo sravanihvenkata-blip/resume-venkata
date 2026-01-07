@@ -94,24 +94,27 @@ h1, h2 {
    PRINT SETTINGS (The Fix is Here)
    ========================================= */
 @media print {
-    /* Aggressive space saving */
+    .no-print { display: none !important; }
+    
+    /* Header layout for print - Force side-by-side */
+    #main-header {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        border-bottom: 1px solid #ccc !important;
+        padding-bottom: 10px !important;
+        margin-bottom: 15px !important;
+    }
+    
     html, body {
         height: auto;
         overflow: visible;
         background: white;
         font-size: 9pt;
-        line-height: 1.45; /* Tighter line height */
-        margin: 0 !important;
-        padding: 10mm 15mm !important; /* Body padding acts as page margin */
+        line-height: 1.8; /* Restore sensible line height */
+        margin: 0; /* Let @page handle margins */
+        padding: 0; /* Let @page handle margins */
     }
-
-    @page {
-        margin: 0;
-        size: auto;
-    }
-
-    /* Minimal top margin for page 2+ achieved via padding */
-    /* Previous specific top margin rules removed to let body padding handle it consistently */
 
     #cv-container {
         width: 100% !important;
@@ -132,12 +135,12 @@ h1, h2 {
         list-style-position: inside !important;
         padding-left: 10px !important;
         margin-left: 0 !important;
-        margin-bottom: 2px !important; /* Tighter list spacing */
+        margin-bottom: 8px !important; /* Restore normal list spacing */
     }
     
     li {
         display: list-item !important; /* Force list item display */
-        margin-bottom: 1px !important; /* Tighter item spacing */
+        margin-bottom: 5px !important; /* Restore normal item spacing */
     }
 
     /* Allow content to split freely across pages */
@@ -145,7 +148,7 @@ h1, h2 {
         display: block !important; /* Kill flexbox for print to allow splitting */
         page-break-inside: auto !important;
         break-inside: auto !important;
-        margin-bottom: 5px !important; /* Reduced section spacing */
+        margin-bottom: 10px !important; /* Restore normal section spacing */
     }
 
     /* Keep headers with their immediate following content if possible, but allow break after */
@@ -159,7 +162,7 @@ h1, h2 {
     h2[data-key="projects_title"] {
         page-break-before: auto !important;
         break-before: auto !important;
-        margin-top: 10px !important;
+        margin-top: 18px !important; /* Restore normal spacing */
         display: block;
     }
 
@@ -167,7 +170,7 @@ h1, h2 {
     #experience .section-title {
         page-break-before: auto !important;
         break-before: auto !important;
-        margin-top: 15px !important; /* Restore standard spacing */
+        margin-top: 25px !important; /* Restore standard spacing */
     }
 
     /* Alternative Fix: If the title is inside a container, 
@@ -182,25 +185,25 @@ h1, h2 {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        margin-bottom: 5px !important;
+        margin-bottom: 8px !important; /* Restore normal spacing */
     }
 
     h2, .section-title {
         font-size: 12pt !important;
         text-transform: uppercase;
-        margin-top: 10px !important; /* Reduced section top margin */
-        margin-bottom: 5px !important; /* Reduced section bottom margin */
+        margin-top: 18px !important; /* Restore normal spacing */
+        margin-bottom: 8px !important; /* Restore normal spacing */
         border-bottom: 1px solid #2980b9;
     }
     
     h1 {
         font-size: 14pt !important;
-        margin-bottom: 2px !important;
+        margin-bottom: 10px !important; /* Restore normal spacing */
     }
 
     h5 {
         font-size: 10.5pt !important;
-        margin-bottom: 2px !important;
+        margin-bottom: 5px !important; /* Restore normal spacing */
     }
 
     h3, h4 {
@@ -208,15 +211,15 @@ h1, h2 {
     }
     
     p, .mb-5, .mb-4, .mb-3, .mb-2 {
-        margin-bottom: 4px !important; /* Tighter paragraph spacing */
+        margin-bottom: 8px !important; /* Restore normal paragraph spacing */
     }
 
     .contact-bar, .social-links {
-        margin-bottom: 2px !important;
+        margin-bottom: 5px !important; /* Restore normal spacing */
     }
 
     .card-body {
-        padding: 2px 0 !important; /* Minimal padding */
+        padding: 8px 0 !important; /* Restore normal padding */
     }
     
     .profile-photo {
@@ -226,7 +229,16 @@ h1, h2 {
     }
 
     header {
-        margin-bottom: 10px !important; /* Reduced header spacing */
-        padding-bottom: 5px !important;
+        margin-bottom: 20px !important; /* Restore normal header spacing */
+        padding-bottom: 10px !important;
+    }
+
+    /* Re-apply @page margins as requested */
+    @page {
+        margin: 25mm 20mm 15mm 20mm; /* For page 2+ */
+        size: auto;
+    }
+    @page :first {
+        margin-top: 12mm; /* For page 1 only */
     }
 }
