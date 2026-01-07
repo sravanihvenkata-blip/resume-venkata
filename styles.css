@@ -222,11 +222,11 @@ h1, h2 {
     }
 
     @page {
-        margin: 25mm 20mm 15mm 20mm; /* Default top margin for page 2+ */
+        margin: 10mm 20mm 15mm 20mm; /* Minimal top margin for all pages */
         size: auto; 
     }
 
     @page :first {
-        margin-top: 12mm; /* Smaller top margin only for the first page */
+        margin-top: 5mm; /* Even less top margin for the first page */
     }
 }
