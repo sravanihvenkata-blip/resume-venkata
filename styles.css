@@ -235,7 +235,7 @@ h1, h2 {
 
     /* Re-apply @page margins as requested */
     @page {
-        margin: 25mm 20mm 15mm 20mm; /* For page 2+ */
+        margin: 15mm 20mm 15mm 20mm; /* Top 15mm for page 2+, others standard */
         size: auto;
     }
     @page :first {
