@@ -30,9 +30,7 @@ const translations = {
     "skills_cat_alm": "Version control and ALM tools",
     "skills_alm_details": "SVN, PTC, MKS, JIRA, GitHub, ALMPlus",
     "skills_cat_tools": "Tools, Platforms & Libraries",
-    "skills_tools_details": "Github, Docker, AWS (basics), Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn, Plotly, Linux Command Line, Streamlit, Davinci Configurator",
-    "skills_cat_additional": "Others",
-    "skills_additional_details": "Data APIs, Web Scraping (BeautifulSoup), Graph Theory, Network Analysis",
+    "skills_tools_details": "Docker, AWS (basics), Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn, Plotly, Linux Command Line, Streamlit",
     
     "projects_title": "Projects",
     "project_1_title": "AI-Powered Vehicle Security (CAN Bus Protection)",
@@ -114,9 +112,7 @@ const translations = {
     "skills_cat_alm": "Versionskontrolle und ALM-Tools",
     "skills_alm_details": "SVN, PTC, MKS, JIRA, GitHub, ALMPlus",
     "skills_cat_tools": "Tools, Plattformen & Bibliotheken",
-    "skills_tools_details": "Github, Docker, AWS (Grundkenntnisse), Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn, Plotly, Linux-Kommandozeile, Streamlit, Virtuelle Maschinen, Davinci Configurator",
-    "skills_cat_additional": "Weitere Technologien",
-    "skills_additional_details": "Data APIs, Web Scraping (BeautifulSoup), Graphentheorie, Netzwerkanalyse",
+    "skills_tools_details": "Docker, AWS (Grundkenntnisse), Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn, Plotly, Linux-Kommandozeile, Streamlit, Virtuelle Maschinen",
     
     "projects_title": "Projekte",
     "project_1_title": "KI-gestützte Fahrzeugsicherheit (CAN Bus Schutz)",
