@@ -18,7 +18,7 @@ h1, h2 {
     object-fit: cover;
     border: 3px solid #0056b3;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    margin-bottom: 10px;
+    /* margin-bottom removed for side-by-side layout */
 }
 
 .section-title {
@@ -95,6 +95,16 @@ h1, h2 {
    ========================================= */
 @media print {
     .no-print { display: none !important; }
+    
+    /* Header layout for print - Force side-by-side */
+    #main-header {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        border-bottom: 1px solid #ccc !important;
+        padding-bottom: 10px !important;
+        margin-bottom: 15px !important;
+    }
     
     html, body {
         height: auto;
