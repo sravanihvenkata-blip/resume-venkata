@@ -111,7 +111,7 @@ h1, h2 {
         overflow: visible;
         background: white;
         font-size: 9pt;
-        line-height: 1.8; /* Restore sensible line height */
+        line-height: 1.55; /* Reduced line height as requested */
         margin: 0; /* Let @page handle margins */
         padding: 0; /* Let @page handle margins */
     }
