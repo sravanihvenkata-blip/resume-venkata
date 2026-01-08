@@ -58,6 +58,7 @@ const translations = {
     
     "exp_3_title": "Senior Software Engineer | KPIT Technologies | Munich & India",
     "exp_3_date": "Oct 2013 – June 2019",
+    "exp_3_client": "<b>Client:</b> Continental, ZF-TRW",
     "exp_3_oem": "<b>OEMs:</b> BMW, HMK, Porsche",
     "exp_3_li_1": "<b>Scalable Data Infrastructure:</b> Engineered high-reliability communication frameworks (CAN, FlexRay, LIN), providing the foundational data layer for modern vehicle diagnostics and predictive maintenance.",
     "exp_3_li_2": "<b>Global Scale Development:</b> Developed safety-critical software modules currently operating in production vehicles for industry leaders like BMW and Porsche.",
