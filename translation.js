@@ -31,7 +31,7 @@ const translations = {
     "skills_tools_details": "Docker, AWS (basics), Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn, Plotly, Linux Command Line, Streamlit, SVN, PTC, MKS, JIRA, GitHub, ALMPlus",
     
     "projects_title": "Projects",
-    "project_1_title": "AI-Powered Vehicle Security (CAN Bus Protection)",
+    "project_1_title": "CAN BUS anomaly detection system",
     "project_1_problem": "<b>The Problem:</b> Modern vehicles are vulnerable to cyber-attacks (like 'hacking' the car's internal communication) that can compromise passenger safety.",
     "project_1_solution": "<b>The Solution:</b> Developed an intelligent security layer that monitors the vehicle's internal 'nervous system' (CAN Bus) in real-time. Using AI, the system 'learns' what normal driving looks like and immediately flags suspicious behavior.",
     "project_1_how_it_works": "<b>How it Works:</b> The system tracks how often messages are sent and checks for 'strange' patterns in the data packets—similar to how a bank detects credit card fraud.",
@@ -110,7 +110,7 @@ const translations = {
     "skills_tools_details": "Docker, AWS (Grundkenntnisse), Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn, Plotly, Linux-Kommandozeile, Streamlit, Virtuelle Maschinen, SVN, PTC, MKS, JIRA, GitHub, ALMPlus",
     
     "projects_title": "Projekte",
-    "project_1_title": "KI-gestützte Fahrzeugsicherheit (CAN Bus Schutz)",
+    "project_1_title": "CAN BUS Anomalieerkennungssystem",
     "project_1_problem": "<b>Das Problem:</b> Moderne Fahrzeuge sind anfällig für Cyberangriffe (wie das 'Hacke' der internen Fahrzeugkommunikation), die die Sicherheit der Passagiere gefährden können.",
     "project_1_solution": "<b>Die Lösung:</b> Entwicklung einer intelligenten Sicherheitsebene, die das interne 'Nervensystem' des Fahrzeugs (CAN Bus) in Echtzeit überwacht. Mithilfe von KI 'lernt' das System, wie normales Fahrverhalten aussieht, und kennzeichnet verdächtiges Verhalten sofort.",
     "project_1_how_it_works": "<b>So funktioniert's:</b> Das System verfolgt, wie oft Nachrichten gesendet werden, und sucht nach 'ungewöhnlichen' Mustern in den Datenpaketen – ähnlich wie eine Bank Kreditkartenbetrug erkennt.",
