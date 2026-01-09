@@ -133,22 +133,10 @@ h1, h2 {
         list-style-position: inside !important;
         padding-left: 10px !important;
         margin-left: 0 !important;
-        margin-bottom: 8px !important; /* Restore normal list spacing */
+        margin-bottom: 8px !important; 
     }
     
-    li {
-        display: list-item !important; /* Force list item display */
-        margin-bottom: 5px !important; /* Restore normal item spacing */
-    }
-
     /* Allow content to split freely across pages */
-    section, .card, .card-body, div {
-        display: block !important; /* Kill flexbox for print to allow splitting */
-        page-break-inside: auto !important;
-        break-inside: auto !important;
-        margin-bottom: 10px !important; /* Restore normal section spacing */
-    }
-
     /* Keep headers with their immediate following content if possible, but allow break after */
     h1, h2, h5, .section-title {
         page-break-after: avoid;
@@ -190,7 +178,7 @@ h1, h2 {
         font-size: 12pt !important;
         text-transform: uppercase;
         margin-top: 15px !important; /* Reduced section top margin */
-        margin-bottom: 15px !important; /* Increased spacing */
+        margin-bottom: 10px !important; /* Reduced spacing */
     }
     
     h1 {
@@ -198,25 +186,12 @@ h1, h2 {
         margin-bottom: 10px !important; /* Restore normal spacing */
     }
 
-    h5 {
-        font-size: 10.5pt !important;
-        margin-bottom: 5px !important; /* Restore normal spacing */
-    }
-
     h3, h4 {
         page-break-after: avoid;
     }
     
-    p, .mb-5, .mb-4, .mb-3, .mb-2 {
-        margin-bottom: 6px !important; /* Reduced paragraph spacing to fit 2 pages */
-    }
-
     .contact-bar, .social-links {
         margin-bottom: 5px !important; /* Restore normal spacing */
-    }
-
-    .card-body {
-        padding: 8px 0 !important; /* Restore normal padding */
     }
     
     .profile-photo {
@@ -230,12 +205,38 @@ h1, h2 {
         padding-bottom: 10px !important;
     }
 
-    /* Re-apply @page margins as requested */
+    /* Optimized spacing for 2-page fit */
+    
+    li {
+        display: list-item !important; 
+        margin-bottom: 3px !important; /* Reduced list item spacing */
+    }
+
+    section, .card, .card-body, div {
+        display: block !important; 
+        page-break-inside: auto !important;
+        break-inside: auto !important;
+        margin-bottom: 8px !important; /* Reduced section spacing */
+    }
+
+    p, .mb-5, .mb-4, .mb-3, .mb-2 {
+        margin-bottom: 4px !important; /* Reduced paragraph spacing */
+    }
+    
+    h5 {
+        font-size: 10.5pt !important;
+        margin-bottom: 4px !important; /* Reduced h5 spacing */
+    }
+
+    .card-body {
+        padding: 4px 0 !important; /* Reduced card padding */
+    }
+
     @page {
-        margin: 10mm 20mm 15mm 20mm; /* Top 10mm for page 2+, others standard */
+        margin: 10mm 15mm 10mm 15mm; /* Reduced margins to fit 2 pages */
         size: auto;
     }
     @page :first {
-        margin-top: 10mm; /* Slightly tighter top margin for page 1 */
+        margin-top: 10mm; 
     }
 }
