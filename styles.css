@@ -233,7 +233,7 @@ h1, h2 {
     }
 
     @page {
-        margin: 10mm 15mm 10mm 15mm; /* Reduced margins to fit 2 pages */
+        margin: 25mm 15mm 10mm 15mm; /* Increased top margin for 2nd page+ */
         size: auto;
     }
     @page :first {
